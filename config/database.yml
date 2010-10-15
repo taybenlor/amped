@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: fishpond
+  database: nybles
   pool: 5
   username: postgres
   password: postgres
@@ -11,15 +11,8 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  database: fishpond
+  database: nybles
   pool: 5
-  username: halftoneapp
-  password: ca5UHapH
-
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: halftoneapp_test
-  pool: 5
-  username: halftoneapp
-  password: ca5UHapH
+  username: postgres
+  password: postgres
+  host: localhost
