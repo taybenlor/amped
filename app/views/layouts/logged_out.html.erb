@@ -1,0 +1,12 @@
+<% if params[:action] != "new" %>
+  <li class="button right"><%= link_to "Create an account", new_user_path %></li>
+<% end %>
+  <li id="login_button" class="button right"><%= link_to "Sign in", login_path, :id => 'sign_in_button' %></li>
+  <div id="sign_in_box" class="inner_glow">
+    <h2>We meet again.</h2>
+    <%= render "user_sessions/signin" %>
+  </div>
+  <script>
+  $('login_button').opensContextBox($('sign_in_box'), {direction:"bottom", buttonDistance:-1});
+  </script>
+<% end %>
