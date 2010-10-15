@@ -1,4 +1,4 @@
-default_run_options[:pty] = true
+default_run_options[:pty] = false
 
 require 'bundler/capistrano'
 
@@ -13,7 +13,7 @@ set :use_sudo, false
 set :rails_env, "production"
 set :application, "nybles"
 set :deploy_to, "/home/nybles/app"
-set :ssh_options, { :forward_agent => true }
+
 server "173.203.207.104", :app, :web, :db, :primary => true
 
 namespace :deploy do
