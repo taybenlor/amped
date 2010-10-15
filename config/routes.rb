@@ -1,4 +1,19 @@
 Amped::Application.routes.draw do
+  root :to => "products#index"
+  
+  resources :comments
+
+  resources :likes
+
+  resources :purchases
+
+  resources :products
+
+  resources :users
+  
+  map.login "login", :controller => "user_sessions", :action => "new"
+  map.logout "logout", :controller => "user_sessions", :action => "destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

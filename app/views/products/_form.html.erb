@@ -1,0 +1,69 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :thumbnail_file_name %><br />
+    <%= f.text_field :thumbnail_file_name %>
+  </div>
+  <div class="field">
+    <%= f.label :thumbnail_content_type %><br />
+    <%= f.text_field :thumbnail_content_type %>
+  </div>
+  <div class="field">
+    <%= f.label :thumbnail_file_size %><br />
+    <%= f.text_field :thumbnail_file_size %>
+  </div>
+  <div class="field">
+    <%= f.label :thumbnail_updated_at %><br />
+    <%= f.datetime_select :thumbnail_updated_at %>
+  </div>
+  <div class="field">
+    <%= f.label :file_file_name %><br />
+    <%= f.text_field :file_file_name %>
+  </div>
+  <div class="field">
+    <%= f.label :file_content_type %><br />
+    <%= f.text_field :file_content_type %>
+  </div>
+  <div class="field">
+    <%= f.label :file_updated_at %><br />
+    <%= f.datetime_select :file_updated_at %>
+  </div>
+  <div class="field">
+    <%= f.label :preview_file_name %><br />
+    <%= f.text_field :preview_file_name %>
+  </div>
+  <div class="field">
+    <%= f.label :preview_content_type %><br />
+    <%= f.text_field :preview_content_type %>
+  </div>
+  <div class="field">
+    <%= f.label :preview_updated_at %><br />
+    <%= f.datetime_select :preview_updated_at %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
