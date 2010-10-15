@@ -1,0 +1,63 @@
+
+.bowtie {
+  position: relative;
+}
+
+  .bowtie .make_animated {
+    /*Use http://cl.ly/1TsZ to do an expo-esque cubic bezier curve*/
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 3.5s;
+    -webkit-transition-timing-function: cubic-bezier(.13,.74,.13,1);
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 3.5s;
+    -moz-transition-timing-function: cubic-bezier(.13,.74,.13,1);
+    transition-property: transform;
+    transition-duration: 3.5s;
+    transition-timing-function: cubic-bezier(.13,.74,.13,1);
+  }
+  
+  .bowtie li {
+    display: inline-block;
+    margin-bottom: 10px;
+    position: absolute;
+    text-align: center;
+    width: 180px;
+  }
+	
+	.bowtie li a {
+		border:none; /* Removes annoying ass line that all links are inheriting */
+	}	
+     
+     .bowtie li figcaption {
+       display: block;
+       -webkit-transition-property: opacity;
+       -webkit-transition-duration: .2s;
+       -webkit-transition-timing-function: linear;
+       -moz-transition-property: opacity;
+       -moz-transition-duration: .2s;
+       -moz-transition-timing-function: linear;
+       transition-property: opacity;
+       transition-duration: .2s;
+       transition-timing-function: linear;
+     } 
+     
+       .bowtie li:hover figcaption, 
+       .bowtie li.selected figcaption {
+         opacity: 1;
+         -webkit-transition-duration: .1s;
+         -moz-transition-duration: .1s;
+         transition-duration: .1s;
+       }
+       
+       .bowtie li.pile_left figcaption,
+       .bowtie li.pile_right figcaption {
+         opacity: 0;
+       }
+
+  .bowtie .selected .img_container {
+    border-color: #a2c8ef;
+    -webkit-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  }
+  
+  
+  

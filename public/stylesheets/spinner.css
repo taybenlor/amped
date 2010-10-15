@@ -1,0 +1,17 @@
+.spinner {
+  width: 20px; height: 18px;
+  background: url(../images/spinner.gif) no-repeat;
+  display: inline-block;
+  margin: 0 10px;
+  margin-top: .8em;
+  float: right;
+}
+
+.loading {
+  width: 15px; height: 15px;
+  background: url(../images/loading.gif) no-repeat;
+  display: inline-block;
+  margin: 0 10px;
+  margin-top: .8em;
+  float: right;
+}

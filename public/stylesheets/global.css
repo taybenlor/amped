@@ -1,0 +1,40 @@
+/* Use this for global styling */
+
+/* I have installed a Grid System. Explanation:
+ * It is called the 960 grid system - http://960.gs
+ * It is based on the idea of a 960px wide website (very standard)
+ * Here is an example of use:
+ * <div class="container_12">
+ *     <div class="grid_7 prefix_1">
+ *         <div class="grid_2 alpha">
+ *             ...
+ *         </div>
+ *         <div class="grid_3">
+ *             ...
+ *         </div>
+ *         <div class="grid_2 omega">
+ *             ...
+ *         </div>
+ *     </div>
+ *     <div class="grid_3 suffix_1">
+ *         ...
+ *     </div>
+ * </div>
+ *
+ * container_12 means 12 total columns - you can choose between 12 and 16
+ * grid_7 means this takes up 7 columns
+ * prefix_1 means there is an extra 1 column space before this content (you can replace 1 with any number)
+ * alpha means this is the first column, align with the left (remove the left margin that would normally occur)
+ * omega means this is the last column, align with the right (remove the right margin that would normally occur)
+ * suffix_1 means there is an extra 1 column space after this content
+ * so in total grid_7 + grid_3 + suffix_1 + prefix_1 = 12 columns
+ *
+ * Happy layout-ing
+ *
+ */
+ 
+/*
+ * There are also default styles for the flash boxes, they sit in "flashes.css"
+ * You can also give a checkbox a class "switch" and it will behave like an iphone-style switch
+ * Anything with a class "spinner" will be a spinner - similar but different for "loading"
+ */
