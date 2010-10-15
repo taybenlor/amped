@@ -11,8 +11,8 @@ Amped::Application.routes.draw do
 
   resources :users
   
-  map.login "login", :controller => "user_sessions", :action => "new"
-  map.logout "logout", :controller => "user_sessions", :action => "destroy"
+  match 'login' => "user_sessions#new"
+  match 'logout' => "user_sessions#destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
