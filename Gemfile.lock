@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/odorcicd/authlogic.git
-  revision: a087ad0cba3c165ba22fcf176c28b6f7517931e8
+  revision: a087ad0
   branch: rails3
   specs:
     authlogic (2.1.3)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: ef7233d25700a7e69cebd2334b656fa9ca0ae927
+  revision: ef7233d
   specs:
     paperclip (2.3.4)
       activerecord
@@ -101,8 +101,6 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    unicorn (1.1.4)
-      rack
 
 PLATFORMS
   ruby
@@ -115,4 +113,3 @@ DEPENDENCIES
   pg
   rails (= 3.0.0)
   rdiscount
-  unicorn
