@@ -4,7 +4,9 @@ Amped::Application.routes.draw do
   resources :purchases
   resources :products
   resources :users
-  root :to => "products#index"
+  resources :user_sessions
+  resources :password_reset, controller: 'PasswordResets'
+  root to: "products#index"
   
   match 'login' => "user_sessions#new"
   match 'logout' => "user_sessions#destroy"
