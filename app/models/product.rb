@@ -75,7 +75,7 @@ class Product < ActiveRecord::Base
   end
   
   def update_related_product_records
-    Product.all.each {|product| RelatedProduct.record_for(self, product).recalculate_similarity}
+    Product.all.each {|product| RelatedProduct.record_for(self, product).try(:recalculate_similarity)}
   end
   
   def related_products(limit=100)
