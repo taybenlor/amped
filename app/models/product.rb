@@ -22,11 +22,35 @@ class Product < ActiveRecord::Base
     update_attribute(:purchase_cache, self.purchases.count)
   end
   
+  
+  # trending
+  before_create :set_created_hour
+  def set_created_hour
+    self.created_hour = Time.zone.now.to_i / (60 * 60)
+  end
+  
+  def self.trending(limit=100)
+    current_hours = Time.zone.now.to_i / (60 * 60)
+    query = Product.select("id, ((like_cache) / power(#{current_hours} - created_hour, 1.8)) as score")
+    query.order('score desc').limit(limit).all
+  end
+  
+  
   # searching
   after_save :update_keywords
   def update_keywords
+    return unless name_changed? || description_changed?
+    return if keyword_magnitude_changed?
     Keyword.update_keywords_for(self)
   end
+  
+  def cosine_similarity_to(vector, magnitude)
+    dp = self.keywords.where(keyword: vector.keys).inject(0) do |sum, keyword|
+      sum + (keyword.score * vector[keyword.keyword])
+    end
+    dp / (magnitude * self.keyword_magnitude)
+  end
+  
   
   # related products
   after_create :add_related_product_records

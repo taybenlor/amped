@@ -2,6 +2,8 @@ class RelatedProduct < ActiveRecord::Base
   belongs_to :product_one, class_name: 'Product'
   belongs_to :product_two, class_name: 'Product'
   after_create :recalculate_similarity
+
+  # FIXME: similarities should also be calculated on purchases, not just likes
   
   # since the only user -> product pairing we have
   # is likes (which are binary) the similarity
