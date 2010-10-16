@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   has_many    :purchases
   has_many    :keywords
   has_many    :product_previews
+  has_many    :tags
   
   validates_presence_of :user_id
   validates_presence_of :description
@@ -29,9 +30,10 @@ class Product < ActiveRecord::Base
     self.created_hour = Time.zone.now.to_i / (60 * 60)
   end
   
+  # FIXME: this should take in to account purchases as well as likes
   def self.trending(limit=100)
     current_hours = Time.zone.now.to_i / (60 * 60)
-    query = Product.select("id, ((like_cache) / power(#{current_hours} - created_hour, 1.8)) as score")
+    query = Product.select("*, ((like_cache) / power(#{current_hours} - created_hour, 1.8)) as score")
     query.order('score desc').limit(limit).all
   end
   

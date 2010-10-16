@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016044325) do
+ActiveRecord::Schema.define(:version => 20101016050242) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -86,6 +86,11 @@ ActiveRecord::Schema.define(:version => 20101016044325) do
     t.integer "product_one_id"
     t.integer "product_two_id"
     t.decimal "similarity"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.integer "product_id"
+    t.string  "tag"
   end
 
   create_table "users", :force => true do |t|
