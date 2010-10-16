@@ -1,7 +1,8 @@
 class Product < ActiveRecord::Base
-  belongs_to :user
-  has_many   :likes
-  has_many   :purchases
+  belongs_to  :user
+  has_many    :likes
+  has_many    :purchases
+  has_many    :keywords
   
   validates_presence_of :user_id
   validates_presence_of :description
@@ -18,6 +19,12 @@ class Product < ActiveRecord::Base
   
   def update_purchase_count
     update_attribute(:purchase_cache, self.purchases.count)
+  end
+  
+  # searching
+  after_save :update_keywords
+  def update_keywords
+    Keyword.update_keywords_for(self)
   end
   
   # related products
