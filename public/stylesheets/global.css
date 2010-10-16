@@ -315,7 +315,19 @@ article.tag_container section {
 	}
 	
 article.tag_container section h1 {
-	font-size: 21px;
+font-size: 16px;
+		padding-bottom: 10px;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	margin-bottom: 20px;
+
+	}
+	
+.tag_container section ul li {
+	margin: ;
+	}
+	
+li.product_image {
+	
 	}
 	
 /* @end */

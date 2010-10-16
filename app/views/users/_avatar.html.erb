@@ -6,9 +6,4 @@
     <li>
       <h2><%= user.name %></h2>
     </li>
-  <% if logged_in? && current_user != user %>
-    <li>
-      <%= link_to 'Follow', follow_path(user_id: user.id),remote: true, method: :post, id: "follow_#{user.id}" %>
-    </li>
-  <% end %>
 </div>
