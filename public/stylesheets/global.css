@@ -110,7 +110,7 @@
 	margin-bottom: 20px;
 	}
 
-.create_account_container form, .edit_account_container form {
+.create_account_container form {
 	margin-bottom: 15px;
 	}
 		
@@ -119,15 +119,15 @@
 	list-style-type: none;
 	}
 	
-.create_account li {
+.create_account li, .edit_account li {
 	margin-bottom: 15px;
 	}
 
-.create_account li:nth-child(3) {
+.create_account li:nth-child(3), .edit_account li:nth-child(4) {
 	margin-bottom: 5px;
 	}
 	
-.create_account label {
+.create_account label, .edit_account label {
 	display: block;
 	font-weight: bold;
 	margin-bottom: 3px;
@@ -135,7 +135,7 @@
 	text-indent: 3px;
 	}
 
-.create_account input {
+.create_account input[type="text"], .create_account input[type="password"], .edit_account input[type="text"], .edit_account input[type="password"] {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f3f3f3), to(#fff));
 	font-size: 14px;
 	font-family: "helvetica neue", helvetica, arial, sans-serif;
@@ -150,7 +150,7 @@
 	color: #5e5e5e;
 	}
 	
-.create_account input:focus {
+.create_account input:focus, .edit_account input:focus {
 	outline: 0;
 	border: 3px solid #bfe5d8;
 	-webkit-box-shadow: inset 0 0 0 1px #b3e0cf !important;
@@ -194,6 +194,39 @@ a.back_button {
 	
 a.back_button:hover {
 	background-color: rgba(0,0,0,0.035);
+	}
+
+ul.edit_account {
+	margin-bottom: 20px;
+	}
+	
+.account_avatar {
+	padding-bottom: 25px;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	margin-bottom: 20px;
+	height: 48px;
+	}
+
+.account_avatar ul {
+	margin: 0;
+	list-style-type: none;
+	height: 48px;
+	overflow: hidden;
+	}
+
+.account_avatar ul li {
+	float: left;
+	}
+	
+.account_avatar ul li h2 {
+	line-height: 48px;
+	margin-left: 15px;
+	font-size: 14px;
+	}
+
+.account_avatar img {
+	height: 48px;
+	width: 48px;
 	}
 
 	

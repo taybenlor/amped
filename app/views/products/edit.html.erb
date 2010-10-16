@@ -1,6 +1,5 @@
-<h1>Editing product</h1>
+<h1>Edit Product Details</h1>
+<%= render "products/form"%>
 
-<h1>Previews</h1>
-<% if @product.id %>
-  <%= render :partial => 'previews', :object => @product %>
-<% end %>
+<h1>Add Some Previews</h1>
+<%= render :partial => 'previews', :object => @product %>

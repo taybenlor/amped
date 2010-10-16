@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @product = current_user.products.find(params[:id])
     respond_with @product
   end
 
@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
     @product.user = current_user
     if @product.save
       flash[:notice] = 'Your product was successfully created.'
+      render :action => :edit
     else
       render :action => :new
     end

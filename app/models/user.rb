@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     c.login_field = :email
   end
   # paperclip
-  has_attached_file :avatar, :styles => {:thumb => "128x128"}
+  has_attached_file :avatar, :styles => {:thumb => "48x48"}
   
   has_many :products
   has_many :comments

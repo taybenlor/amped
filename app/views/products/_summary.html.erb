@@ -3,8 +3,12 @@
   <%= image_tag product.thumbnail.url(:thumb) %>
   <h1><%= product.name %></h1>
   <p><%= product.description %></p>
-  <div class="product_summary_details">
-    <%= render partial: 'products/purchase_button', locals: {product: product} %>
-    <%= render partial: 'products/stats', locals: {product: product} %>
-  </div>
+  <% if product.user == current_user %>
+    <%= link_to "Edit", edit_product_path(product), :class=>"button" %>
+  <% else %>
+    <div class="product_summary_details">
+      <%= render partial: 'products/purchase_button', locals: {product: product} %>
+      <%= render partial: 'products/stats', locals: {product: product} %>
+    </div>
+  <% end%>
 </div>

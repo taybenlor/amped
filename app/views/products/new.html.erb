@@ -1,24 +1,6 @@
-<%= form_for(@product, :html => { :multipart => true }) do |f| %>
-  <%= f.error_messages %>
-  <li>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </li>
-  <li>
-    <%= f.label :amount %>
-    <%= f.text_field :amount %>
-  </li>
-  <li>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </li>
-  <li>
-    <label for="user[thumbnail]">Thumbnail</label>
-    <%= f.file_field :thumbnail %>
-  </li>
-  <li>
-    <label for="user[file]">File</label>
-    <%= f.file_field :file %>
-  </li>
-  <%= f.submit %>
-<% end %>
+<div class="add_product_container">
+  <h1>Create a new product</h1>
+  <ul class="add_product">
+    <%= render "products/form"%>
+  </ul>
+</div>
