@@ -1,11 +1,13 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'index' %>
+<% end %>
+
 <article>
   <% trending_products_by_tag.each do |tag, products| %>
     <section>
       <h1><%= tag %></h1>
       <ul>
-        <% products.each do |product| %>
-          <li><%= product.name %></li>
-        <% end %>
+        <%= render partial: "index/product", collection: products %>
       </ul>
     </section>
   <% end %>
