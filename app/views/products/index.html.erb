@@ -3,6 +3,13 @@
   <%= javascript_include_tag 'index' %>
 <% end %>
 
+<aside>
+  <h1>nybles</h1>
+  <form action="<%= search_products_path %>">
+    <input type="text" name="query">
+  </form>
+</aside>
+
 <article id="main_content">
   <% trending_products_by_tag.each do |tag, products| %>
     <section>

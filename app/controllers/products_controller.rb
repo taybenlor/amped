@@ -70,4 +70,7 @@ class ProductsController < ApplicationController
     render :partial => "related"
   end
   
+  def search
+    @results = Keyword.search_for(params[:query], 0, 20)
+  end
 end
