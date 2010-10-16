@@ -1,7 +1,7 @@
 <% product = summary unless product %>
 <div class="product_summary">
   <a href="<%= product_path(product)%>">
-  <%= image_tag product.thumbnail.url(:thumb) %>
+  <%= image_tag product.thumbnail.url(:thumb), width: '128', height: '128' %>
   </a>
   <%= link_to "#{product.name}", product_path(product), :class => "product"%>
   <p><%= product.description %></p>
