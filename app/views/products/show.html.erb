@@ -36,7 +36,9 @@
 
 <div class="extra container_12">
   <div class="comments grid_9">
-    <%= render partial: 'comments/form', locals: {comment: Comment.new(product_id: @product.id)}%>
+    <% if current_user %>
+      <%= render partial: 'comments/form', locals: {comment: Comment.new(product_id: @product.id)}%>
+    <% end %>
     <%= render partial: 'comments/comment', collection: @product.comments %>
   </div>
   <div class="related grid_3">
