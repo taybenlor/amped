@@ -1,0 +1,4 @@
+<h1><%= @user.name.pluralize %> Items</h1>
+<ul>
+  <%= render partial: 'index/product', collection: @products[0..5] %>
+</ul>
