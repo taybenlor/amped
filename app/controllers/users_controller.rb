@@ -15,9 +15,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     
-    client = Grackle::Client.new
-    client.users.show? :screen_name=>'jamsi' #http://twitter.com/users/show.json?screen_name=some_user
-    puts client.inspect
+    client = Grackle::Client.new    
+    @tweets = client.statuses.user_timeline? :screen_name => 'jamsi'
     
     respond_to do |format|
       format.html # show.html.erb
