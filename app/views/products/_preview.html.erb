@@ -1,19 +1,26 @@
-<% if preview.preview_content_type %>
-<%
-  @type = preview.preview_content_type
+<% if !preview.blank? %>
+  <% if preview.preview_content_type %>
+  <%
+    @type = preview.preview_content_type
 
-  if @type == "image/jpeg" || @type == "image/gif" || @type == "image/png" %>
+    if @type == "image/jpeg" || @type == "image/gif" || @type == "image/png" %>
   
-    <%= render :partial=>'viewer_image', :object => preview %>
+      <%= render :partial=>'viewer_image', :object => preview %>
     
-  <% elsif @type.starts_with? 'video' %>
+    <% elsif @type.starts_with? 'video' %>
   
-	  <%= render :partial=>'viewer_video', :object => preview %>
+  	  <%= render :partial=>'viewer_video', :object => preview %>
 	  
-	<% else %>
+  	<% else %>
 	
-	   <div class="media_fail ninja">
-	     <p>Our ninjas are still sorting through this campaign. It'll appear here shortly.</p>
-	   </div>
+  	   <div class="media_fail ninja">
+  	     <p>Our ninjas are still sorting through this campaign. It'll appear here shortly.</p>
+  	   </div>
+    <% end %>
   <% end %>
+  
+<% else %>
+  
+  No previews for this product :(
+  
 <% end %>

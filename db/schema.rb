@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016033025) do
+ActiveRecord::Schema.define(:version => 20101016044325) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20101016033025) do
     t.integer  "purchase_cache",         :default => 0
     t.decimal  "amount"
     t.float    "keyword_magnitude"
+    t.integer  "created_hour"
   end
 
   create_table "purchases", :force => true do |t|
