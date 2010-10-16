@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :user
   has_many :likes
   has_many :purchases
+  has_many :related_products, :order => 'similarity desc'
   
   validates_presence_of :user_id
   validates_presence_of :description
