@@ -12,7 +12,7 @@ class CartController < ApplicationController
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   def new
-    items = ['1', '2', '3']
+    items = ['1', '2']
     session[:cart] = items
     redirect_to :action => 'index'
   end
@@ -60,7 +60,10 @@ class CartController < ApplicationController
     # Make sure total greater than 0..
     if @total > 0
       
-      setup_response = gateway.setup_purchase(@total,
+      # TOTAL must be in cents 
+      @total = (@total * 100).to_i
+    
+      setup_response = gateway.setup_purchase(5000,
         :ip                => request.remote_ip,
         :return_url        => url_for(:action => 'confirm', :only_path => false),
         :cancel_return_url => url_for(:action => 'index', :only_path => false)
@@ -85,7 +88,8 @@ class CartController < ApplicationController
       return
     end
 
-    @address = details_response.address
+    @address = details_response.address     
+    @order_total = details_response.params['order_total']
   end
   
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
@@ -106,8 +110,8 @@ class CartController < ApplicationController
       
   private
   
-  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
-  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
+    # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+    # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
     def gateway
       @gateway ||= PaypalExpressGateway.new(
         :login => 'nybles_1287187717_biz_api1.visualconnect.net',

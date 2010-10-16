@@ -7,4 +7,8 @@ Amped::Application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.active_support.deprecation = :log
   config.action_dispatch.best_standards_support = :builtin
+  
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+  end  
 end

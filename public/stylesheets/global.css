@@ -46,3 +46,8 @@
    margin: auto;
    border: solid 1px gray; 
   }
+  
+  .clearfix {
+    clear: both;
+  }
+  
