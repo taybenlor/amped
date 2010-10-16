@@ -1,6 +1,5 @@
-<h1><%= @product.name %></h1>
-
-<h2>Related</h2>
+<%= render partial: "summary", locals: {product: @product } %>
+<hr>
 <ul>
-  <li>an item</li>
+  <%= render partial: 'index/product', collection: @product.related_products(30) %>
 </ul>
