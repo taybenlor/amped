@@ -1,6 +1,8 @@
 class CreateKeywordIndexesForAllProducts < ActiveRecord::Migration
   def self.up
-    Product.all.each {|product| product.update_keywords}
+    Product.all.each do |product|
+      Keyword.update_keywords_for(product)
+    end
   end
 
   def self.down
