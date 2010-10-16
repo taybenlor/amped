@@ -7,7 +7,7 @@
 <div class="cart">
   
   <div class="buttons">
-    <%= link_to 'Add dummy product', new_cart_url %> | <%= link_to "Clear", clear_cart_index_url %>
+    <%= link_to "Clear Cart", clear_cart_index_url %>
     
     <%= link_to image_tag('/images/btn_xpressCheckout.gif'), :action => 'checkout' %>
   </div>
@@ -17,8 +17,14 @@
 
   <% if !@cart.blank? %>
 
-    <div id="items">
-      <ul>
+    <div id="items" class="container_12">
+      
+      <ul class="grid_6">
+        <li>
+          <div class="grid_2 alpha heading">tsg</div>
+          <div class="grid_2 heading">test</div>
+          <div class="grid_2 omega heading">sdh</div>                    
+        </li>
         <%= render :partial => 'item', :collection => @cart %>
       </ul>
     </div>
