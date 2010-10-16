@@ -1,0 +1,6 @@
+<% form_for :product_preview, ProductPreview.new, :url => product_previews_path, :html => { :multipart => true } do |form| %>
+  <%= hidden_field_tag 'product_id', previews.id %>
+    <%= form.file_field :preview %>
+    
+    <%= submit_tag 'Add Preview' %>
+<% end %>

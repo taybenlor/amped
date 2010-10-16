@@ -1,0 +1,27 @@
+.product{
+}
+
+  .product .preview{
+    float: left;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.0273438) -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.398438)), to(rgba(255, 255, 255, 0)));
+    background-color: rgba(0, 0, 0, 0.0273438);
+    background-color: rgba(0, 0, 0, 0.0273438);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.398438)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.398438)), to(rgba(255, 255, 255, 0)));
+    border: 1px solid rgba(0, 0, 0, 0.148438);
+    border-bottom-left-radius: 3px 3px;
+    border-bottom-right-radius: 3px 3px;
+    border-top-left-radius: 3px 3px;
+    border-top-right-radius: 3px 3px;
+    padding: 10px 20px;
+  }
+  
+  .product .slider{
+    float: right;
+    width: 20%;
+  }
+    .product .slider li {
+      padding: 5px 0px 0px 0px;
+      list-style: none;
+    }
