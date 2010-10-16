@@ -39,7 +39,6 @@ class Product < ActiveRecord::Base
     query.order('score desc').limit(limit).all
   end
   
-  
   # tags
   def set_tags(text)
     self.tags.each(&:destroy)
@@ -50,11 +49,15 @@ class Product < ActiveRecord::Base
   
   
   # searching
-  after_save :update_keywords
+  after_save :update_keywords, :update_tags
   def update_keywords
     return unless name_changed? || description_changed?
     return if keyword_magnitude_changed?
     Keyword.update_keywords_for(self)
+  end
+  
+  def update_tags
+    self.set_tags(self.tags_text) if self.tags_text
   end
   
   def cosine_similarity_to(vector, magnitude)

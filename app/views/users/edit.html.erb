@@ -1,6 +1,7 @@
 <div class="edit_account_container">
   <h1>Account Settings</h1>
   <%= render partial: "users/avatar", locals: {user: current_user}%>
+
   <%= form_for current_user, :html => {:multipart => true} do |f| %>
     <%= f.error_messages %>
     <ul class="edit_account">

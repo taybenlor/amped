@@ -1,1 +1,1 @@
-page.replace "product_stats_#{@like.product}", :partial => "products/stats", :locals => {product: @like.product}
+page.replace "product_stats_#{@like.product.id}", :partial => "products/stats", :locals => {product: @like.product}
