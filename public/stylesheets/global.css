@@ -273,7 +273,7 @@ ul.edit_account {
 	}
 	
 .account_avatar {
-	padding-bottom: 25px;
+	padding-bottom: 22px;
 	border-bottom: 1px solid rgba(0,0,0,0.05);
 	margin-bottom: 20px;
 	height: 48px;
@@ -315,15 +315,15 @@ article.tag_container section {
 	}
 	
 article.tag_container section h1 {
-font-size: 16px;
-		padding-bottom: 10px;
+	font-size: 16px;
+	padding-bottom: 10px;
 	border-bottom: 1px solid rgba(0,0,0,0.05);
 	margin-bottom: 20px;
 
 	}
 	
-.tag_container section ul li {
-	margin: ;
+.tag_container section ul {
+	list-style-type: none;
 	}
 	
 li.product_image {

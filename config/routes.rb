@@ -10,6 +10,9 @@ Amped::Application.routes.draw do
       get :fetch_preview
       get :related
     end
+    collection do
+      get :search
+    end
   end
   resources :users
   resources :user_sessions

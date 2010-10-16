@@ -1,8 +1,37 @@
+<style>
+  h1 {
+    font-size: 2em;
+  }
+  .twitter{
+    -webkit-box-shadow: rgba(255, 255, 255, 0.597656) 0px 1px 1px inset, rgba(0, 0, 0, 0.0976562) 0px -1px 1px inset, rgba(0, 0, 0, 0.148438) 0px 3px 15px, rgba(0, 0, 0, 0.296875) 0px 0px 1px;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#EFEFEF));
+    border-bottom-left-radius: 12px 12px;
+    border-bottom-right-radius: 12px 12px;
+    border-top-left-radius: 12px 12px;
+    border-top-right-radius: 12px 12px;
+  }
+    .twitter .line {
+      border-bottom: solid 1px  black;
+      color: black;
+      padding: 5px;
+    }
+</style>
+
+<h1><%= @user.name %></h1>
+
 <div class="profile container_12">
   <div class="profile_summary grid_2 alpha">
     <%= render partial: "users/avatar", locals: {user: @user} %>
   </div>
-  <div class="product_list grid_10 omega">
+  <div class="product_list grid_6">
     <%= render partial: "products/summary", collection: @user.products.order("like_cache DESC") %>
   </div>
+  <div class="grid_4 twitter omega">
+    <div style="padding: 10px">
+      <h3>My Social Feed</h3>
+      <% @tweets.each do |t| %>
+        <div class="line"><%= t.text %></div>
+      <% end%>
+    </div>
+  </div>  
 </div>
