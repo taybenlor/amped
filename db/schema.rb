@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016005035) do
+ActiveRecord::Schema.define(:version => 20101016012004) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20101016005035) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "amount"
+    t.decimal  "amount"
   end
 
   create_table "purchases", :force => true do |t|
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(:version => 20101016005035) do
     t.boolean  "confirmed"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "related_products", :force => true do |t|
+    t.integer "product_one_id"
+    t.integer "product_two_id"
+    t.decimal "similarity"
   end
 
   create_table "users", :force => true do |t|
