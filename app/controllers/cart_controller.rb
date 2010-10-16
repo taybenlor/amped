@@ -72,7 +72,7 @@ class CartController < ApplicationController
       # TOTAL must be in cents 
       @total = (@total * 100).to_i
     
-      setup_response = gateway.setup_purchase(5000,
+      setup_response = gateway.setup_purchase(@total,
         :ip                => request.remote_ip,
         :return_url        => url_for(:action => 'confirm', :only_path => false),
         :cancel_return_url => url_for(:action => 'index', :only_path => false)
@@ -103,8 +103,13 @@ class CartController < ApplicationController
   
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
-  def complete
-    purchase = gateway.purchase(5000,
+  def complete    
+    
+    # TOTAL must be in cents 
+    @total = params[:order_total]
+    @total = (@total * 100).to_i
+    
+    purchase = gateway.purchase(@total,
       :ip       => request.remote_ip,
       :payer_id => params[:payer_id],
       :token    => params[:token]
