@@ -4,14 +4,14 @@
 
 <div class="product">
   
-  <div class="preview">
-    
+  <div id="preview" class="preview">
+    <%= render :partial => 'preview', :object => @product.product_previews.first %>
   </div>
   
   <div class="slider">
     <ul>
-      <% @product.product_previews.each do |p| %>
-        <%= image_tag p.preview.url(:thumb) %>
+      <% @product.product_previews.each do |p| %>        
+        <%= link_to image_tag(p.preview.url(:thumb)), fetch_preview_product_url(p.id), :remote => :true %>
       <% end %>
     </ul>
   </div>
@@ -25,3 +25,13 @@
   </div>
   
 </div>
+
+
+<script>
+  $$('.slider ul li a').each(function(it) {
+    it.observe('click', function()
+    {
+      
+    });
+  });
+</script>
