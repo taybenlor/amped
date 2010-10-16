@@ -5,9 +5,9 @@ Merchant Account
 Username: nybles_1287187717_biz@visualconnect.net
 Password: 287187649
 
-Buyer Account
-Username: bob_1287187766_per@visualconnect.net
-Password: 287187752
+Buyer
+Username: marvin_1287032117_per@visualconnect.net
+Password: 287032060
 
 
 

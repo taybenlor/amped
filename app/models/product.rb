@@ -11,6 +11,16 @@ class Product < ActiveRecord::Base
   has_attached_file :preview
   has_attached_file :file
   
+  # caches
+  def update_like_count
+    update_attribute(:like_cache, self.likes.count)
+  end
+  
+  def update_purchase_count
+    update_attribute(:purchase_cache, self.purchases.count)
+  end
+  
+  # related products
   after_create :add_related_product_records
   def add_related_product_records
     Product.all.each {|product| RelatedProduct.record_for(self, product)}
