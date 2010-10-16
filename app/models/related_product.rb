@@ -15,7 +15,14 @@ class RelatedProduct < ActiveRecord::Base
     query_two = Like.select(:user_id).where(product_id: product_two_id).order('user_id asc').to_sql
     user_ids_one = ActiveRecord::Base.connection.execute(query_one).column_values(0)
     user_ids_two = ActiveRecord::Base.connection.execute(query_two).column_values(0)
-    self.similarity = (user_ids_one & user_ids_two).size.to_f / (user_ids_one | user_ids_two).size.to_f
+    intersection = (user_ids_one & user_ids_two).size
+    union = (user_ids_one | user_ids_two).size
+    
+    if intersection == 0 || union == 0
+      self.similarity = 0
+    else
+      self.similarity = intersection.to_f / union.to_f
+    end
     self.save
   end
   
