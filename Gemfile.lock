@@ -101,8 +101,6 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    unicorn (1.1.4)
-      rack
 
 PLATFORMS
   ruby
@@ -115,4 +113,3 @@ DEPENDENCIES
   pg
   rails (= 3.0.0)
   rdiscount
-  unicorn

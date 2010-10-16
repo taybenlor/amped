@@ -11,6 +11,10 @@ Amped::Application.routes.draw do
 
   resources :users
   
+  resources :user_sessions
+  
+  resource :password_reset
+  
   match 'login' => "user_sessions#new"
   match 'logout' => "user_sessions#destroy"
 

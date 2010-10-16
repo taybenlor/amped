@@ -1,45 +1,31 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :perishable_token %><br />
-    <%= f.text_field :perishable_token %>
-  </div>
-  <div class="field">
-    <%= f.label :persistence_token %><br />
-    <%= f.text_field :persistence_token %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :password_salt %><br />
-    <%= f.text_field :password_salt %>
-  </div>
-  <div class="field">
-    <%= f.label :crypted_password %><br />
-    <%= f.text_field :crypted_password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= form_for @user do |f| %>
+  <%= f.error_messages %>
+  <ul class="width_700 centre">
+    <li>
+      <label for="user[username]">Your name</label>
+      <%= f.text_field :name, :placeholder => "Steve Jobs", :autofocus => '' %></li>
+    <li>
+      <label for="user[email]">Email</label>
+      <%= f.text_field :email, :placeholder => "steve@me.com" %></li>
+    <li>
+      <label for="user[password]">Password</label>
+      <%= f.password_field :password, :placeholder => "••••••" %></li>
+    <li>
+      <label for="user[password_confirmation]" class="two_line_label">Once more for good&nbsp;measure</label>
+      <%= f.password_field :password_confirmation, :placeholder => "••••••" %></li>
+  </ul>
+  <div 
+  <%# raw(recaptcha_tags) %>
+  <div class="width_700 centre">
+    <button class="black" type="submit" id="open_password_confirm">
+      <div class="inner_glow">
+        Create Account
+      </div>
+    </button>
   </div>
 <% end %>
+
+<script>
+  new ChromaHash($('user_password'),{number: 3});
+  new ChromaHash($('user_password_confirmation'),{number: 3});
+</script>
