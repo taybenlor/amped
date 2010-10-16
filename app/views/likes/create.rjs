@@ -1,1 +1,1 @@
-page.replace 'person-45', :partial => 'person', :object => @person
+page.replace "product_stats_#{@like.product}", :partial => "products/stats", :locals => {product: @like.product}
