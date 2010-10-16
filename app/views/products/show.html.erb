@@ -10,9 +10,9 @@
   
   <div class="slider">
     <ul>
-      <li><img src="/images/_sample_thumbnails/1.png" /></li>
-      <li><img src="/images/_sample_thumbnails/2.png" /></li>
-      <li><img src="/images/_sample_thumbnails/3.png" /><li>
+      <% @product.product_previews.each do |p| %>
+        <%= image_tag p.preview.url(:thumb) %>
+      <% end %>
     </ul>
   </div>
   
