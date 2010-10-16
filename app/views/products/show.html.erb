@@ -19,17 +19,7 @@
   <div class="clearfix"></div>
 
   <div class="buttons">
-
+    <%= render :partial => 'purchase_button', :locals => { :product => @product } %>
   </div>
   
 </div>
-
-
-<script>
-  $$('.slider ul li a').each(function(it) {
-    it.observe('click', function()
-    {
-      
-    });
-  });
-</script>

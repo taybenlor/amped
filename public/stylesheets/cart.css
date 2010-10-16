@@ -1,7 +1,15 @@
 .cart {
   
 }
-.cart .buttons {
-  float: right;
-  margin: 0px 0px 20px 0px;
-}
+  .cart li {
+    list-style: none;
+  }
+  .cart .buttons {
+    float: right;
+    margin: 0px 0px 20px 0px;
+  }
+  
+  .cart .heading{
+    background-color: gray;
+    color: white;
+  }

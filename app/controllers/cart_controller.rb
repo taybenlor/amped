@@ -11,11 +11,21 @@ class CartController < ApplicationController
 
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
-  def create
+  def create        
     @id = params[:id]
     items = session[:cart]
-    items << "#{@id}"
+    
+    if items.blank?
+      items = ["#{@id}"]
+    else
+      items << "#{@id}"
+    end
+  
     session[:cart] = items
+    
+    puts '------------------------'
+    puts items
+    puts '------------------------'    
   end
   
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
