@@ -1,4 +1,6 @@
 Amped::Application.routes.draw do
+  resources :follows
+
   resources :comments
   resources :likes
   resources :purchases

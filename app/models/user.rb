@@ -16,4 +16,7 @@ class User < ActiveRecord::Base
     reset_perishable_token!  
     NotificationMailer.password_reset(self).deliver
   end
+  
+  def best_seller
+  end
 end

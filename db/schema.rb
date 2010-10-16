@@ -10,12 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101015222241) do
+ActiveRecord::Schema.define(:version => 20101016013413) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "product_id"
     t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "follows", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20101015222241) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "like_cache",             :default => 0
+    t.integer  "purchase_cache",         :default => 0
   end
 
   create_table "purchases", :force => true do |t|
