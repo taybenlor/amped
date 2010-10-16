@@ -68,6 +68,7 @@
 	
 #nav_bar nav {
 	float: right;
+	width: 400px;
 	}
 
 #nav_bar nav ul {
@@ -75,7 +76,7 @@
 	}
 
 #nav_bar nav ul li {
-	display: inline-block;
+	float: left;
 	margin-right: 10px;
 	}
 
@@ -87,6 +88,32 @@
 	font-weight: bold;
 	color: #fff;
 	text-decoration: none;
+	}
+	
+a.add {
+	width: 21px;
+	height: 21px;
+	background: url(/images/nav_icons.png) no-repeat 0 -20px;
+	display: block;
+	text-indent: -9999px;
+	margin-top: 9px;
+	}
+
+a.profile {
+	
+	}
+	
+a.cart {
+	
+	}
+	
+a.settings {
+	height: 21px;
+	background: url("/images/");
+	}
+	
+a.log_out {
+	
 	}
 	
 /* @end */
@@ -196,7 +223,13 @@ button.submit_button:hover, .submit_button:hover {
 	}
 	
 input#product_amount {
-	background: url('/images/price_field_bg.png') no-repeat;
+	background: url('/images/price_field_bg.png') no-repeat 0 1px;
+	padding-left: 20px;
+	width: 213px;
+	}
+	
+input#product_amount:focus {
+	background-position: 0 -24px;
 	}
 
 a.back_button {

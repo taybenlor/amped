@@ -1,7 +1,9 @@
 <% product = summary unless product %>
 <div class="product_summary">
+  <a href="<%= product_path(product)%>">
   <%= image_tag product.thumbnail.url(:thumb) %>
-  <h1><%= product.name %></h1>
+  </a>
+  <%= link_to "#{product.name}", product_path(product), :class => "product"%>
   <p><%= product.description %></p>
   <% if product.user == current_user %>
     <%= link_to "Edit", edit_product_path(product), :class=>"button" %>
