@@ -7,6 +7,7 @@ Amped::Application.routes.draw do
   resources :products
   resources :users
   resources :user_sessions
+  resources :product_previews
 
   resource :password_reset
 
