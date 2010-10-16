@@ -1,9 +1,13 @@
 Amped::Application.routes.draw do
   resources :follows
-
   resources :comments
   resources :likes
   resources :purchases
+  resources :user_sessions
+  resources :product_previews
+  resource  :password_reset
+  resources :user_sessions
+  
   resources :products do
     member do
       get :download
@@ -14,12 +18,13 @@ Amped::Application.routes.draw do
       get :search
     end
   end
-  resources :users
-  resources :user_sessions
-  resources :product_previews
-
-  resource :password_reset
-
+  
+  resources :users do
+    member do
+      get :widget
+    end
+  end
+  
   resources :cart do
     collection do
       get :checkout
@@ -31,10 +36,6 @@ Amped::Application.routes.draw do
   end
 
   root to: "products#index"
-  
-  resources :user_sessions
-  
-  resource :password_reset
   
   match 'login' => "user_sessions#new"
   match 'logout' => "user_sessions#destroy"

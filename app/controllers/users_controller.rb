@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:edit, :update, :destroy]
-  require 'grackle'
   
   def index
     @users = User.all
@@ -79,5 +78,11 @@ class UsersController < ApplicationController
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def widget
+    @user = User.find(params[:id])
+    @products = @user.products
+    render partial: 'widget'
   end
 end
