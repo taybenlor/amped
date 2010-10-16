@@ -58,6 +58,6 @@
 
 <br /><br /><br />
 <h1>Previews</h1>
-<% if !@product.blank? %>
+<% if @product.id %>
   <%= render :partial => 'previews', :object => @product %>
 <% end %>
