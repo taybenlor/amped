@@ -9,6 +9,10 @@ Amped::Application.routes.draw do
   resources :cart
   root to: "products#index"
   
+  resources :user_sessions
+  
+  resource :password_reset
+  
   match 'login' => "user_sessions#new"
   match 'logout' => "user_sessions#destroy"
 end

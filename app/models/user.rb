@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   
   validates_presence_of :name
   
+  def password_reset!  
+    reset_perishable_token!  
+    NotificationMailer.password_reset(self).deliver
+  end
 end
