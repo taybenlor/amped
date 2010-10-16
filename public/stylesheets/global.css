@@ -194,6 +194,10 @@ button.submit_button:hover, .submit_button:hover {
 #product_submit {
 	width: 480px;
 	}
+	
+input#product_amount {
+	background: url('/images/price_field_bg.png') no-repeat;
+	}
 
 a.back_button {
 	background: url('/images/back_arrow.png') no-repeat 5px center;

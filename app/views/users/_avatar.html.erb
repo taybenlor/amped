@@ -8,7 +8,7 @@
     </li>
   <% if logged_in? && current_user != user %>
     <li>
-      <%= link_to_remote 'Follow', follow_path(user_id: user.id), method: :post, id: "follow_#{user.id}" %>
+      <%= link_to 'Follow', follow_path(user_id: user.id),remote: true, method: :post, id: "follow_#{user.id}" %>
     </li>
   <% end %>
 </div>
