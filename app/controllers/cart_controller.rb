@@ -34,15 +34,42 @@ class CartController < ApplicationController
     redirect_to :action => 'index'
   end
   
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  def clear
+    session[:cart] = ''
+    redirect_to :action => 'index'    
+  end
+  
   # Paypal CHECKOUT Method
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
   def checkout
-    setup_response = gateway.setup_purchase(5000,
-      :ip                => request.remote_ip,
-      :return_url        => url_for(:action => 'confirm', :only_path => false),
-      :cancel_return_url => url_for(:action => 'index', :only_path => false)
-    )
-    redirect_to gateway.redirect_url_for(setup_response.token)
+    
+    # TODO: Need to fetch a total for all the items in the cart
+    items = session[:cart]
+    
+    # Total
+    @total = 0
+    
+    # Loop through each item in cart and add to totel
+    items.each do |item|
+      @product = Product.find(item)
+      @total += @product.amount
+    end
+    
+    # Make sure total greater than 0..
+    if @total > 0
+      
+      setup_response = gateway.setup_purchase(@total,
+        :ip                => request.remote_ip,
+        :return_url        => url_for(:action => 'confirm', :only_path => false),
+        :cancel_return_url => url_for(:action => 'index', :only_path => false)
+      )
+      redirect_to gateway.redirect_url_for(setup_response.token)
+      
+    else
+      flash[:error] = "Total is 0 - wtf?"
+    end
   end
 
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
@@ -83,9 +110,9 @@ class CartController < ApplicationController
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
     def gateway
       @gateway ||= PaypalExpressGateway.new(
-        :login => 'API Login',
-        :password => 'API Password',
-        :signature => 'API Signature'
+        :login => 'nybles_1287187717_biz_api1.visualconnect.net',
+        :password => 'H5SU5XRYH27QZXYB',
+        :signature => 'AFcWxV21C7fd0v3bYYYRCpSSRl31Aru-BRPlXkQrXRcew2eXUkSbyYU1'
       )
     end
 end

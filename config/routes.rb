@@ -7,8 +7,15 @@ Amped::Application.routes.draw do
   resources :products
   resources :users
   resources :user_sessions
+
   resource :password_reset
-  resources :cart
+
+  resources :cart do
+    collection do
+      get :clear
+    end    
+  end
+
   root to: "products#index"
   
   resources :user_sessions

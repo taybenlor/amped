@@ -8,3 +8,14 @@ Password: 287187649
 Buyer Account
 Username: bob_1287187766_per@visualconnect.net
 Password: 287187752
+
+
+
+
+
+
+Credential	API Signature
+API Username	nybles_1287187717_biz_api1.visualconnect.net
+API Password	H5SU5XRYH27QZXYB
+Signature	
+Request Date	16 Oct 2010 11:42:49 AEDT
