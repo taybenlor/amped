@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
   validates_numericality_of :amount, :on => :create, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 200
   
   
-  has_attached_file :thumbnail, :styles => {:thumb => "128x128"}
+  has_attached_file :thumbnail, styles: {thumb: "128x128", micro: "75x75"}
   has_attached_file :preview
   has_attached_file :file
   

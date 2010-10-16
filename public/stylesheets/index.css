@@ -1,0 +1,54 @@
+/* yeah I know another file... but I didn't want to step on anyone's toes */
+
+article section {
+  display: block;
+  float: left;
+  width: 400px;
+  border: 1px solid black;
+  margin: 0px 15px 5px 0px;
+  padding: 10px;
+}
+
+  article section > h1 {
+    margin-bottom: 10px;
+  }
+
+  article section ul {
+    padding: 0px;
+    margin: 0px;
+  }
+
+    article section ul li {
+      display: block;
+      list-style-type: none;
+      padding: 0px;
+      width: 200px;
+      height: 75px;
+      float: left;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+      article section ul li img {
+        float: left;
+        margin-right: 10px;
+      }
+      
+      article section ul li h1, article section ul li h2, article section ul li p {
+        float: left;
+        width: 115px;
+        margin-bottom: 4px;
+      }
+      
+      article section ul li h1 {
+        color: #333;
+      }
+      
+      article section ul li h2 {
+        font-weight: normal;
+      }
+      
+      article section ul li p {
+        color: #ccc;
+        font-size: 14px;
+      }
