@@ -8,6 +8,7 @@ Amped::Application.routes.draw do
     member do
       get :download
       get :fetch_preview
+      get :related
     end
   end
   resources :users

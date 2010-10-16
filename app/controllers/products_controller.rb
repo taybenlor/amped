@@ -62,9 +62,12 @@ class ProductsController < ApplicationController
         flash[:error] = "Cannot find download :("
         render 'download_error'
       end
-    end
+    end    
+  end  
     
-    
-    
+  def related
+    @product = Product.find(params[:id])
+    render :partial => "related"
   end
+  
 end

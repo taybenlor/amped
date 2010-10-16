@@ -2,13 +2,13 @@
   <%= stylesheet_link_tag 'product' %>
 <% end %>
 
-<div class="product">
+<div class="product container_12">
     
-  <div id="preview" class="preview">
+  <div id="preview" class="preview grid_9 alpha">
     <%= render :partial => 'preview', :object => @product.product_previews.first %>
   </div>
   
-  <div class="slider">
+  <div class="slider grid_3 omega">
     <ul>
       <% @product.product_previews.each do |p| %>        
         <%= link_to image_tag(p.preview.url(:thumb)), fetch_preview_product_url(p.id), :remote => :true %>
@@ -18,12 +18,29 @@
   
   <div class="clearfix"></div>
 
-  <div class="trendingpower">
+  <div class="trendingpower grid_4 alpha">
     <img src="<%= trending_power_graph(@product) %>">
   </div>
-
-  <div class="buttons">
-    <%= render :partial => 'purchase_button', :locals => { :product => @product } %>
-  </div>
   
+  <div class="grid_4">
+    <p>
+      <%= @product.description %>
+    </p>
+  </div>
+
+  <div class="stats grid_4 omega">
+    <%= render partial: 'products/stats', locals: {product: @product} %>
+    <%= render partial: 'products/purchase_button', locals: {product: @product} %>
+  </div>
+</div>
+
+<div class="extra container_12">
+  <div class="comments grid_9">
+    <%= render partial: 'comments/form', locals: {comment: Comment.new(product_id: @product.id)}%>
+    <%= render partial: 'comments/comment', collection: @product.comments %>
+  </div>
+  <div class="related grid_3">
+    <h1>Similar</h1>
+    <%= render partial: 'products/thumbnail', collection: @product.related_products(10)%>
+  </div>
 </div>

@@ -68,16 +68,16 @@
 	
 #nav_bar nav {
 	float: right;
-	width: 400px;
 	}
 
 #nav_bar nav ul {
 	margin: 0;
+	padding: 0;
 	}
 
 #nav_bar nav ul li {
-	float: left;
-	margin-right: 10px;
+	margin-right: 20px;
+	display: inline-block;
 	}
 
 #nav_bar nav ul li#login_button {
@@ -88,32 +88,37 @@
 	font-weight: bold;
 	color: #fff;
 	text-decoration: none;
+	line-height: 21px;
 	}
 	
 a.add {
-	width: 21px;
-	height: 21px;
-	background: url(/images/nav_icons.png) no-repeat 0 -20px;
 	display: block;
-	text-indent: -9999px;
-	margin-top: 9px;
+	background: url(/images/nav_icons.png) no-repeat 0 -20px;
+	padding-left: 26px;
 	}
 
 a.profile {
-	
+	display: block;
+	background: url("/images/nav_icons.png") no-repeat 0 -106px;
+	padding-left: 26px;	
 	}
 	
 a.cart {
-	
+	display: block;
+	background: url("/images/nav_icons.png") no-repeat 0 -84px;
+	padding-left: 26px;
 	}
 	
 a.settings {
-	height: 21px;
-	background: url("/images/");
+	display: block;
+	background: url("/images/nav_icons.png") no-repeat 0 -41px;
+	padding-left: 26px;
 	}
 	
 a.log_out {
-	
+	display: block;
+	background: url("/images/nav_icons.png") no-repeat 0 -126px;
+	padding-left: 26px;
 	}
 	
 /* @end */

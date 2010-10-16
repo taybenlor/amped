@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   has_many    :purchases
   has_many    :keywords
   has_many    :product_previews
+  has_many    :comments
   has_many    :tags, :order => 'index asc'
   
   validates_presence_of :user_id
