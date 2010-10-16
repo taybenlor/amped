@@ -91,9 +91,9 @@
 	
 /* @end */
 	
-/* @group Create & Edit Account */
+/* @group Create & Edit Account, Add Product */
 
-.create_account_container, .edit_account_container {
+.create_account_container, .edit_account_container, .add_product_container {
 	width: 248px;
 	margin: 0 auto;
 	margin-top: 30px;
@@ -102,8 +102,12 @@
 	border-radius: 12px;
 	-webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), inset 0 -1px 1px rgba(0,0,0,0.1), 0 3px 15px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.3);
 	}
+	
+.add_product_container {
+	width: 480px;
+	}
 
-.create_account_container h1, .edit_account_container h1 {
+.create_account_container h1, .edit_account_container h1, .add_product_container h1 {
 	font-size: 21px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -114,12 +118,12 @@
 	margin-bottom: 15px;
 	}
 		
-.create_account, .edit_account {
+.create_account, .edit_account, .add_product {
 	margin: 0;
 	list-style-type: none;
 	}
 	
-.create_account li, .edit_account li {
+.create_account li, .edit_account li, .add_product li {
 	margin-bottom: 15px;
 	}
 
@@ -127,15 +131,15 @@
 	margin-bottom: 5px;
 	}
 	
-.create_account label, .edit_account label {
+.create_account label, .edit_account label, .add_product label {
 	display: block;
 	font-weight: bold;
 	margin-bottom: 3px;
 	font-size: 13px;
 	text-indent: 3px;
 	}
-
-.create_account input[type="text"], .create_account input[type="password"], .edit_account input[type="text"], .edit_account input[type="password"] {
+	
+.create_account input[type="text"], .create_account input[type="password"], .edit_account input[type="text"], .edit_account input[type="password"], .add_product input[type="text"], .add_product input[type="password"], .add_product textarea {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f3f3f3), to(#fff));
 	font-size: 14px;
 	font-family: "helvetica neue", helvetica, arial, sans-serif;
@@ -149,15 +153,19 @@
 	font-weight: bold;
 	color: #5e5e5e;
 	}
+
+.add_product input#tags {
+	width: 226px;
+	}
 	
-.create_account input:focus, .edit_account input:focus {
+.create_account input[type="text"]:focus, .create_account input[type="password"]:focus, .edit_account input[type="text"]:focus, .edit_account input[type="password"]:focus, .add_product input[type="text"]:focus, .add_product input[type="password"]:focus, .add_product textarea:focus  {
 	outline: 0;
 	border: 3px solid #bfe5d8;
 	-webkit-box-shadow: inset 0 0 0 1px #b3e0cf !important;
 	color: #21513f !important;
 	}
 	
-button.submit_button {
+button.submit_button, .submit_button {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#a7dbc7), to(#5ebe99));
 	border: 1px solid #5ebe99;
 	padding: 5px 10px;
@@ -174,9 +182,17 @@ button.submit_button {
 	width: 247px;
 	}
 
-button.submit_button:hover {
+button.submit_button:hover, .submit_button:hover {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b3e0cf), to(#6ac3a1));
 	border-color: #6ac3a1;
+	}
+	
+.add_product textarea {
+	width: 458px;
+	}
+	
+#product_submit {
+	width: 480px;
 	}
 
 a.back_button {
