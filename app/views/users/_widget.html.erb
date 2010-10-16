@@ -1,4 +1,11 @@
-<h1><%= @user.name.pluralize %> Items</h1>
-<ul>
-  <%= render partial: 'index/product', collection: @products[0..5] %>
-</ul>
+<html>
+  <head>
+    <%= stylesheet_link_tag 'widget' %>
+  </head>
+  <body>
+    <h1><%= @user.name.pluralize %> Items</h1>
+    <ul>
+      <%= render partial: 'index/product', collection: @products[0..5] %>
+    </ul>
+  </body>
+</html>
