@@ -51,4 +51,9 @@ class ProductsController < ApplicationController
   def fetch_preview
     @preview = ProductPreview.find(params[:id])
   end
+  
+  def related
+    @product = Product.find(params[:id])
+    render :partial => "related"
+  end
 end

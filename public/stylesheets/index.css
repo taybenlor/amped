@@ -18,37 +18,38 @@ article section {
     margin: 0px;
   }
 
-    article section ul li {
-      display: block;
-      list-style-type: none;
-      padding: 0px;
-      width: 200px;
-      height: 75px;
-      float: left;
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
+li.product {
+  display: block;
+  list-style-type: none;
+  padding: 0px;
+  width: 200px;
+  height: 75px;
+  float: left;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
 
-      article section ul li img {
-        float: left;
-        margin-right: 10px;
-      }
-      
-      article section ul li h1, article section ul li h2, article section ul li p {
-        float: left;
-        width: 115px;
-        margin-bottom: 4px;
-      }
-      
-      article section ul li h1 {
-        color: #333;
-      }
-      
-      article section ul li h2 {
-        font-weight: normal;
-      }
-      
-      article section ul li p {
-        color: #ccc;
-        font-size: 14px;
-      }
+  li.product img {
+    float: left;
+    margin-right: 10px;
+  }
+  
+  li.product h1, li.product h2, li.product p {
+    float: left;
+    width: 115px;
+    margin-bottom: 4px;
+    overflow: hidden;
+  }
+  
+  li.product h1 {
+    color: #333;
+  }
+  
+  li.product h2 {
+    font-weight: normal;
+  }
+  
+  li.product p {
+    color: #ccc;
+    font-size: 14px;
+  }

@@ -1,4 +1,4 @@
-<li class="product">
+<li class="product" product-id="<%= product.id %>">
   <%= image_tag product.thumbnail.url(:micro), width: '75', height: '75' %>
   <h1><%= product.name %></h1>
   <h2><%= product.user.name %></h2>
