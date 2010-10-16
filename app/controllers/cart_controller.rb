@@ -22,10 +22,6 @@ class CartController < ApplicationController
     end
   
     session[:cart] = items
-    
-    puts '------------------------'
-    puts items
-    puts '------------------------'    
   end
   
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
@@ -70,11 +66,18 @@ class CartController < ApplicationController
     # Total
     @total = 0
     
+    array = []
+    
     # Loop through each item in cart and add to totel
     items.each do |item|
       @product = Product.find(item)
       @total += @product.amount
+      
+      array << "#{@product.id}"
     end
+    
+    # Store product that we are purchasing in session
+    session[:purchase_ids] = array
     
     # Make sure total greater than 0..
     if @total > 0
@@ -107,8 +110,15 @@ class CartController < ApplicationController
       return
     end
 
+    # Paypal objects
     @address = details_response.address     
     @order_total = details_response.params['order_total']
+    
+    # Fetch items
+    items = session[:purchase_ids]
+    puts '-----------------------'
+    puts items
+    puts '-----------------------'    
   end
   
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
@@ -117,18 +127,50 @@ class CartController < ApplicationController
     
     # TOTAL must be in cents 
     @total = params[:order_total]
-    @total = (@total * 100).to_i
+    @total_in_cents = (@total * 100).to_i
     
-    purchase = gateway.purchase(@total,
+    # Confirm purchase
+    purchase = gateway.purchase(@total_in_cents,
       :ip       => request.remote_ip,
       :payer_id => params[:payer_id],
       :token    => params[:token]
     )
 
+    # FAIL?
     if !purchase.success?
       @message = purchase.message
       render :action => 'error'
       return
+    else 
+      
+      # Fetch items
+      items = session[:purchase_ids]
+      
+      puts '-----------------------'
+      puts 'Array size' + items.size.to_s
+      puts '-----------------------'
+            
+      # Loop through each
+      items.each do |i|      
+        
+        puts 'CREATE PRODUCT'
+        
+        @product = Product.find(i)
+        
+        # Create purchase
+        @purchase = Purchase.new
+        @purchase.user = current_user
+        @purchase.product = @product
+        @purchase.confirmed = true
+        @purchase.amount = @total
+        @purchase.save
+        
+        puts '--------- LOL'
+        puts @purchase.errors
+      end
+           
+      redirect_to '/purchases'
+     
     end
   end    
 end

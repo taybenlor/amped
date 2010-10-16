@@ -13,7 +13,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
+    
+    #client = Grackle::Client.new
+    #client.users.show? :screen_name=>'jamsi' #http://twitter.com/users/show.json?screen_name=some_user
+    #puts client.inspect
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }

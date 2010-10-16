@@ -2,16 +2,37 @@
   <%= stylesheet_link_tag 'cart' %>
 <% end %>
 
-<h1>Please Confirm Your Payment Details</h1>
+<style>
+.lol{
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.button_yes {
+  border: solid 1px green;
+  color: green;
+  font-size: 1.5em;  
+  border-radius: 15px;
+  background-color: #9CDB84;  
+}
+.button_no {
+  border: solid 1px red;
+  color: red;
+  font-size: 1.5em;  
+  border-radius: 15px;
+  background-color: #EA7C7F;
+}
+</style>
 
-<div style="width:40%;">
-  <table class="payment_confirmation">
-    <tr><th>Name</th><td><%= @address['name'] %></td></tr>
-    <tr><th>Total</th><td><%= @order_total %></td></tr>  
-  </table>
+<h1 class="lol">You are about to purchase this item for $<%= @order_total %> - this cool bro?</h1>
 
   <% form_tag :action => 'complete', :token => params[:token], :payer_id => params[:PayerID] do %>
     <%= hidden_field_tag :order_total, "#{@order_total}" %>
-    <%= submit_tag 'Complete Payment' %>
+    
+    <button class="button_yes" type="cancel">
+      Hells yeah
+    </button>
+    <button class="button_no" type="submit">
+      Get me outta here
+    </button>    
   <% end %>
 </div>

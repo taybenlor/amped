@@ -52,8 +52,22 @@ class ProductsController < ApplicationController
     @preview = ProductPreview.find(params[:id])
   end
   
+  def download
+    @product = Product.where(:id => params[:id]).first
+    
+    if !@product.blank?
+      if @product.file.url
+        redirect_to @product.file.url(:original)
+      else
+        flash[:error] = "Cannot find download :("
+        render 'download_error'
+      end
+    end    
+  end  
+    
   def related
     @product = Product.find(params[:id])
     render :partial => "related"
   end
+  
 end
