@@ -10,11 +10,18 @@ module ProductsHelper
   
   def trending_power_graph(product)
     hour = Time.zone.now.to_i / (60 * 60)
-    series = []    
-    product.created_hour.upto(hour).each do |hour|
-      likes = Like.where("product_id = ? and created_at <= ?", product.id, Time.at(hour * 60 * 60)).count
-      power = likes / (((hour - product.created_hour) + 2) ** 1.8)
-      series << power
+    series = []
+    #product.created_hour.upto(hour).each do |hour|
+    #  likes = Like.where("product_id = ? and created_at <= ?", product.id, Time.at(hour * 60 * 60)).count
+    #  power = likes / (((hour - product.created_hour) + 2) ** 1.8)
+    #  series << power
+    #end
+    likes = 0
+    50.times do |i|
+      if rand > 0.5
+        likes += rand(5)
+      end
+      series << likes / ((i + 2) ** 1.8)
     end
     "http://chart.apis.google.com/chart?cht=lc&chs=300x225&chds=#{series.min},#{series.max}&chd=t:#{series.join(',')}"
   end
