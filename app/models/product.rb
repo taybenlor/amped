@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   has_many    :likes
   has_many    :purchases
   has_many    :keywords
+  has_many    :product_previews
   
   validates_presence_of :user_id
   validates_presence_of :description

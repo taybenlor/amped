@@ -1,0 +1,5 @@
+<h1><%= user.name %></h1>
+<%= image_tag user.avatar.url(:thumb) %>
+<% if logged_in? && current_user != user %>
+  <%= link_to_remote 'Follow', follow_path(user_id: user.id), method: :post, id: "follow_#{user.id}" %>
+<% end %>

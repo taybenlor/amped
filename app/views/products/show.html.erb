@@ -1,70 +1,35 @@
-<p id="notice"><%= notice %></p>
+<% content_for :head do  %>
+  <%= stylesheet_link_tag 'product' %>
+<% end %>
 
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
+<div class="product">
+    
+  <div id="preview" class="preview">
+    <%= render :partial => 'preview', :object => @product.product_previews.first %>
+  </div>
+  
+  <div class="slider">
+    <ul>
+      <% @product.product_previews.each do |p| %>        
+        <%= link_to image_tag(p.preview.url(:thumb)), fetch_preview_product_url(p.id), :remote => :true %>
+      <% end %>
+    </ul>
+  </div>
+  
+  <div class="clearfix"></div>
 
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
+  <div class="buttons">
 
-<p>
-  <b>Thumbnail file name:</b>
-  <%= @product.thumbnail_file_name %>
-</p>
-
-<p>
-  <b>Thumbnail content type:</b>
-  <%= @product.thumbnail_content_type %>
-</p>
-
-<p>
-  <b>Thumbnail file size:</b>
-  <%= @product.thumbnail_file_size %>
-</p>
-
-<p>
-  <b>Thumbnail updated at:</b>
-  <%= @product.thumbnail_updated_at %>
-</p>
-
-<p>
-  <b>File file name:</b>
-  <%= @product.file_file_name %>
-</p>
-
-<p>
-  <b>File content type:</b>
-  <%= @product.file_content_type %>
-</p>
-
-<p>
-  <b>File updated at:</b>
-  <%= @product.file_updated_at %>
-</p>
-
-<p>
-  <b>Preview file name:</b>
-  <%= @product.preview_file_name %>
-</p>
-
-<p>
-  <b>Preview content type:</b>
-  <%= @product.preview_content_type %>
-</p>
-
-<p>
-  <b>Preview updated at:</b>
-  <%= @product.preview_updated_at %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @product.user_id %>
-</p>
+  </div>
+  
+</div>
 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<script>
+  $$('.slider ul li a').each(function(it) {
+    it.observe('click', function()
+    {
+      
+    });
+  });
+</script>

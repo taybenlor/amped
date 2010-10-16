@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(:version => 20101016033025) do
     t.datetime "updated_at"
   end
 
+  create_table "product_previews", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.text     "description"

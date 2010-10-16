@@ -1,0 +1,1 @@
+page.replace_html 'preview', :partial => 'preview', :object => @preview
