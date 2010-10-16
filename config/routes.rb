@@ -6,7 +6,11 @@ Amped::Application.routes.draw do
   resources :users
   resources :user_sessions
   resources :password_reset, controller: 'PasswordResets'
-  resources :cart
+  resources :cart do
+    collection do
+      get :clear
+    end    
+  end
   root to: "products#index"
   
   resources :user_sessions

@@ -34,6 +34,13 @@ class CartController < ApplicationController
     redirect_to :action => 'index'
   end
   
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  def clear
+    session[:cart] = ''
+    redirect_to :action => 'index'    
+  end
+  
   # Paypal CHECKOUT Method
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
   def checkout
