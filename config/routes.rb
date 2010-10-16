@@ -1,11 +1,15 @@
 Amped::Application.routes.draw do
+  resources :follows
+
   resources :comments
   resources :likes
   resources :purchases
   resources :products
   resources :users
   resources :user_sessions
-  resources :password_reset, controller: 'PasswordResets'
+
+  resource :password_reset
+
   resources :cart do
     collection do
       get :checkout
@@ -15,6 +19,7 @@ Amped::Application.routes.draw do
       post :complete      
     end    
   end
+
   root to: "products#index"
   
   resources :user_sessions

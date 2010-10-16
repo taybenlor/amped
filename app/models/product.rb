@@ -10,4 +10,14 @@ class Product < ActiveRecord::Base
   has_attached_file :thumbnail, :styles => {:thumb => "128x128"}
   has_attached_file :preview
   has_attached_file :file
+  
+  def update_like_count
+    self.like_cache = self.likes.count
+    self.save
+  end
+  
+  def update_purchase_count
+    self.purchase_cache = self.purchases.count
+    self.save
+  end
 end

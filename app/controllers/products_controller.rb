@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-
   # Hmm .. so much cleaner
   respond_to :html, :json, :xml
 
