@@ -38,3 +38,11 @@
  * You can also give a checkbox a class "switch" and it will behave like an iphone-style switch
  * Anything with a class "spinner" will be a spinner - similar but different for "loading"
  */
+ 
+ /* Sorry .. this needed to be styled ... */
+ #main {
+   width: 600px;
+   padding: 20px;
+   margin: auto;
+   border: solid 1px gray; 
+  }

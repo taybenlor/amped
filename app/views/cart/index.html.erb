@@ -1,0 +1,21 @@
+<h1>Your Shopping Cart</h1>
+
+<p style="float: right">
+  <%= link_to 'Add dummy product', new_cart_url %>
+</p>
+
+<div style="clear:both;"></div>
+
+<% if !@cart.blank? %>
+
+  <div id="items">
+    <ul>
+      <%= render :partial => 'item', :collection => @cart %>
+    </ul>
+  </div>
+
+<% else %>
+
+  <h3>Whoops, loose something? There's nothing in your cart dude!</h3>
+  
+<% end %>
