@@ -49,18 +49,13 @@ class Product < ActiveRecord::Base
   
   
   # searching
-  after_save   :update_keywords
-  after_create :update_tags
+  after_save :update_keywords
   def update_keywords
     return unless name_changed? || description_changed?
     return if keyword_magnitude_changed?
     Keyword.update_keywords_for(self)
   end
-  
-  def update_tags
-    self.set_tags(self.tags_text) if self.tags_text
-  end
-  
+
   def cosine_similarity_to(vector, magnitude)
     dp = self.keywords.where(keyword: vector.keys).inject(0) do |sum, keyword|
       sum + (keyword.score * vector[keyword.keyword])

@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
     @product = Product.new(params[:product])
     @product.user = current_user
     if @product.save
+      @product.set_tags params[:tags]
       flash[:notice] = 'Your product was successfully created.'
       render :action => :edit
     else
