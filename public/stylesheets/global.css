@@ -91,9 +91,9 @@
 	
 /* @end */
 	
-/* @group Create Account */
+/* @group Create & Edit Account */
 
-.create_account_container {
+.create_account_container, .edit_account_container {
 	width: 248px;
 	margin: 0 auto;
 	margin-top: 30px;
@@ -103,18 +103,18 @@
 	-webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), inset 0 -1px 1px rgba(0,0,0,0.1), 0 3px 15px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.3);
 	}
 
-.create_account_container h1 {
+.create_account_container h1, .edit_account_container h1 {
 	font-size: 21px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid rgba(0,0,0,0.05);
 	margin-bottom: 20px;
 	}
 
-.create_account_container form {
+.create_account_container form, .edit_account_container form {
 	margin-bottom: 15px;
 	}
 		
-.create_account {
+.create_account, .edit_account {
 	margin: 0;
 	list-style-type: none;
 	}

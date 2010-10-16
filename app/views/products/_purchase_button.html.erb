@@ -1,4 +1,5 @@
+<% product = purchase_button unless product%>
 <div class="product_purchase_buttons">
-  <%= link_to '(Quick Buy)', new_purchase_path(product_id: product.id), :class => "one_click" %>
+  <%= link_to "#{number_to_currency(product.amount)}", new_purchase_path(product_id: product.id), :class => "one_click" %>
   <%= link_to '(Add to Cart)', cart_index_url(:id => product.id), remote: true, :class => "cart", :method => :post %>
 </div>
