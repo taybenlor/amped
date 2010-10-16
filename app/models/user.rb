@@ -18,5 +18,14 @@ class User < ActiveRecord::Base
   end
   
   def best_seller
+    self.products.order("purchase_cache DESC").first
+  end
+  
+  def likes?(product)
+    self.likes.where(product_id: product.id).exists?
+  end
+  
+  def get_like(product)
+    self.likes.where(product_id: product.id).first
   end
 end

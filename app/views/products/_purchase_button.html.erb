@@ -1,0 +1,1 @@
+<div class="product_purchase_buttons"><%= link_to number_to_currency(product.price), new_purchase_path(product_id: product.id), :class => "one_click" %><%= link_to 'add_to_cart', cart_index, remote: true, :class => "cart" %></div>

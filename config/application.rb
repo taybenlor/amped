@@ -38,5 +38,6 @@ module Amped
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    ENV['RAILS_ASSET_ID'] = ''
   end
 end
