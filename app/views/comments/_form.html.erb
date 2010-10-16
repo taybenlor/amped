@@ -1,5 +1,6 @@
 <%= render :partial => 'users/avatar', locals: {user: current_user} %>
 <%= form_for(comment) do |f| %>
   <%= f.text_area :comment %>
+  <%= hidden_field_tag :product_id, comment.product_id%>
   <%= f.submit 'Comment'%>
 <% end %>

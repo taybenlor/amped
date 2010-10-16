@@ -2,10 +2,10 @@
   <%= stylesheet_link_tag 'index' %>
 <% end %>
 
-<article>
+<article class="tag_container">
   <% trending_products_by_tag.each do |tag, products| %>
     <section>
-      <h1><%= tag %></h1>
+      <h1>Tagged "<%= tag %>"</h1>
       <ul>
         <%= render partial: "index/product", collection: products %>
       </ul>
