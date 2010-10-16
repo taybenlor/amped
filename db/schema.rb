@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(:version => 20101016031715) do
     t.datetime "updated_at"
   end
 
+  create_table "keywords", :force => true do |t|
+    t.integer "product_id"
+    t.string  "keyword"
+    t.float   "score"
+  end
+
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "product_id"
@@ -72,6 +78,12 @@ ActiveRecord::Schema.define(:version => 20101016031715) do
     t.boolean  "confirmed"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "related_products", :force => true do |t|
+    t.integer "product_one_id"
+    t.integer "product_two_id"
+    t.decimal "similarity"
   end
 
   create_table "users", :force => true do |t|
