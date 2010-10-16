@@ -1,5 +1,5 @@
 /* @override 
-	http://172.31.0.87:3000/stylesheets/global.css
+	http://169.254.182.178:3000/stylesheets/global.css
 */
 	
 /* Use this for global styling */
@@ -48,8 +48,24 @@
 #nav_bar {
 	background-color: #39393b;
 	margin-bottom: 20px;
+	line-height: 40px;
+	display: block;
 	}
 	
+#nav_bar h2 {
+	display: inline-block;
+	}
+	
+#nav_bar h2 a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #5ebe99;
+	}
+	
+#nav_bar nav {
+	float: right;
+	}
+
 #nav_bar nav ul {
 	margin: 0;
 	}
@@ -57,11 +73,10 @@
 #nav_bar nav ul li {
 	display: inline-block;
 	margin-right: 10px;
-	line-height: 30px;
 	}
 
-#nav_bar nav ul li:last-child {
-	margin-right: 0 !important;
+#nav_bar nav ul li#login_button {
+	margin-right: 0;
 	}
 
 #nav_bar nav ul li a {

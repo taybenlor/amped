@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016015433) do
+ActiveRecord::Schema.define(:version => 20101016031715) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -27,9 +27,24 @@ ActiveRecord::Schema.define(:version => 20101016015433) do
     t.datetime "updated_at"
   end
 
+  create_table "keywords", :force => true do |t|
+    t.integer "product_id"
+    t.string  "keyword"
+    t.float   "score"
+  end
+
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_previews", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,6 +78,12 @@ ActiveRecord::Schema.define(:version => 20101016015433) do
     t.boolean  "confirmed"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "related_products", :force => true do |t|
+    t.integer "product_one_id"
+    t.integer "product_two_id"
+    t.decimal "similarity"
   end
 
   create_table "users", :force => true do |t|

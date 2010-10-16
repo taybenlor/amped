@@ -48,22 +48,16 @@
     <%= f.datetime_select :file_updated_at %>
   </div>
   <div class="field">
-    <%= f.label :preview_file_name %><br />
-    <%= f.text_field :preview_file_name %>
-  </div>
-  <div class="field">
-    <%= f.label :preview_content_type %><br />
-    <%= f.text_field :preview_content_type %>
-  </div>
-  <div class="field">
-    <%= f.label :preview_updated_at %><br />
-    <%= f.datetime_select :preview_updated_at %>
-  </div>
-  <div class="field">
     <%= f.label :user_id %><br />
     <%= f.text_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+<br /><br /><br />
+<h1>Previews</h1>
+<% if !@product.blank? %>
+  <%= render :partial => 'previews', :object => @product %>
 <% end %>

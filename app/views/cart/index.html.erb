@@ -1,21 +1,32 @@
+<% content_for :head do  %>
+  <%= stylesheet_link_tag 'cart' %>
+<% end %>
+
 <h1>Your Shopping Cart</h1>
 
-<div style="float: right">
-  <%= link_to 'Add dummy product', new_cart_url %> | <%= link_to "Clear", clear_cart_index_url %>
-</div>
-
-<div style="clear:both;"></div>
-
-<% if !@cart.blank? %>
-
-  <div id="items">
-    <ul>
-      <%= render :partial => 'item', :collection => @cart %>
-    </ul>
+<div class="cart">
+  
+  <div class="buttons">
+    <%= link_to 'Add dummy product', new_cart_url %> | <%= link_to "Clear", clear_cart_index_url %>
+    
+    <%= link_to image_tag('/images/btn_xpressCheckout.gif'), :action => 'checkout' %>
   </div>
 
-<% else %>
 
-  <h3>Whoops, loose something? There's nothing in your cart dude!</h3>
+  <div class="clearfix"></div>
+
+  <% if !@cart.blank? %>
+
+    <div id="items">
+      <ul>
+        <%= render :partial => 'item', :collection => @cart %>
+      </ul>
+    </div>
+
+  <% else %>
+
+    <h3>Whoops, loose something? There's nothing in your cart dude!</h3>
   
-<% end %>
+  <% end %>
+
+</div>

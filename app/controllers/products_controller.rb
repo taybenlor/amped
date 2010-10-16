@@ -39,4 +39,8 @@ class ProductsController < ApplicationController
     @product.destroy
     respond_with @product
   end
+  
+  def fetch_preview
+    @preview = ProductPreview.find(params[:id])
+  end
 end

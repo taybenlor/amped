@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
+
+  # Includes active merchant gem
+  include ActiveMerchant::Billing
+  
+  # Blah
   helper :all
   protect_from_forgery
   layout 'application'
@@ -45,4 +50,15 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
+    
+    # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+    # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
+    def gateway
+      @gateway ||= PaypalExpressGateway.new(
+        :login => 'nybles_1287187717_biz_api1.visualconnect.net',
+        :password => 'H5SU5XRYH27QZXYB',
+        :signature => 'AFcWxV21C7fd0v3bYYYRCpSSRl31Aru-BRPlXkQrXRcew2eXUkSbyYU1'
+      )
+    end    
 end
+

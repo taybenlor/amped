@@ -10,9 +10,18 @@ class CartController < ApplicationController
   end
 
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
+  def create
+    @id = params[:id]
+    items = session[:cart]
+    items << "#{@id}"
+    session[:cart] = items
+  end
+  
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   def new
-    items = ['1', '2', '3']
+    items = ['1', '2']
     session[:cart] = items
     redirect_to :action => 'index'
   end
@@ -60,6 +69,9 @@ class CartController < ApplicationController
     # Make sure total greater than 0..
     if @total > 0
       
+      # TOTAL must be in cents 
+      @total = (@total * 100).to_i
+    
       setup_response = gateway.setup_purchase(@total,
         :ip                => request.remote_ip,
         :return_url        => url_for(:action => 'confirm', :only_path => false),
@@ -85,13 +97,19 @@ class CartController < ApplicationController
       return
     end
 
-    @address = details_response.address
+    @address = details_response.address     
+    @order_total = details_response.params['order_total']
   end
   
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
-  def complete
-    purchase = gateway.purchase(5000,
+  def complete    
+    
+    # TOTAL must be in cents 
+    @total = params[:order_total]
+    @total = (@total * 100).to_i
+    
+    purchase = gateway.purchase(@total,
       :ip       => request.remote_ip,
       :payer_id => params[:payer_id],
       :token    => params[:token]
@@ -102,17 +120,5 @@ class CartController < ApplicationController
       render :action => 'error'
       return
     end
-  end
-      
-  private
-  
-  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
-  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
-    def gateway
-      @gateway ||= PaypalExpressGateway.new(
-        :login => 'nybles_1287187717_biz_api1.visualconnect.net',
-        :password => 'H5SU5XRYH27QZXYB',
-        :signature => 'AFcWxV21C7fd0v3bYYYRCpSSRl31Aru-BRPlXkQrXRcew2eXUkSbyYU1'
-      )
-    end
+  end    
 end
