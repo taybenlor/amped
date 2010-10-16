@@ -1,8 +1,8 @@
 <div class="profile container_12">
   <div class="profile_summary grid_2 alpha">
-    
+    <%= render partial: "users/avatar", locals: {user: @user} %>
   </div>
-  <div class="grid_10 omega">
-    
+  <div class="product_list grid_10 omega">
+    <%= render partial: "products/summary", collection: @user.products.order("like_cache DESC") %>
   </div>
 </div>

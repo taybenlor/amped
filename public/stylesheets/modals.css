@@ -1,7 +1,9 @@
+/* @override http://172.31.0.87:3000/stylesheets/modals.css */
+	
 .modal {
   display: block;
   margin: auto;
-  width: 543px;
+  width: 243px;
   border: solid 1px #4d4d4d;
   background: url(../images/modal_bg.png) repeat-x bottom left;
   background-color: rgba(253,253,253,.94);

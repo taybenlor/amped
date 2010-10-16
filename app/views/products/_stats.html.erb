@@ -1,0 +1,10 @@
+<% product = stats unless product %>
+<div id="product_stats_<%= product.id%>">
+  <% if current_user.likes? product %>
+    <%= link_to "Unlike", like_path(current_user.get_like(product), product_id: product.id), remote: true, method: "delete", :class=>"unlike button" %>
+  <% else %>
+    <%= link_to "Like", likes_path(product_id: product.id), remote: true, method: "post", :class=>"like button" %>
+  <% end %>
+  <span class="likes"><%= product.like_cache %></span>
+  <span class="purchases"><%= product.purchase_cache%></span>
+</div>

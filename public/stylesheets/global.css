@@ -1,3 +1,7 @@
+/* @override 
+	http://169.254.182.178:3000/stylesheets/global.css
+*/
+	
 /* Use this for global styling */
 
 /* I have installed a Grid System. Explanation:
@@ -38,16 +42,48 @@
  * You can also give a checkbox a class "switch" and it will behave like an iphone-style switch
  * Anything with a class "spinner" will be a spinner - similar but different for "loading"
  */
+	
+/* @group Nav Bar */
+	
+#nav_bar {
+	background-color: #39393b;
+	margin-bottom: 20px;
+	line-height: 40px;
+	display: block;
+	}
+	
+#nav_bar h2 {
+	display: inline-block;
+	}
+	
+#nav_bar h2 a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #5ebe99;
+	}
+	
+#nav_bar nav {
+	float: right;
+	}
+
+#nav_bar nav ul {
+	margin: 0;
+	}
+
+#nav_bar nav ul li {
+	display: inline-block;
+	margin-right: 10px;
+	}
+
+#nav_bar nav ul li#login_button {
+	margin-right: 0;
+	}
+
+#nav_bar nav ul li a {
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	}
+	
+/* @end */
  
- /* Sorry .. this needed to be styled ... */
- #main {
-   width: 960px;
-   padding: 20px;
-   margin: auto;
-   border: solid 1px gray; 
-  }
-  
-  .clearfix {
-    clear: both;
-  }
-  
