@@ -2,8 +2,6 @@
 }
 
   .product .preview{
-    float: left;
-    width: 70%;
     background: rgba(0, 0, 0, 0.0273438) -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.398438)), to(rgba(255, 255, 255, 0)));
     background-color: rgba(0, 0, 0, 0.0273438);
     background-color: rgba(0, 0, 0, 0.0273438);
