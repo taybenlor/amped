@@ -1,0 +1,20 @@
+.tabular {
+  
+}
+  .tabular table {
+    width: 80%;
+  }
+  .tabular table th, td{
+    padding: 10px;
+    font-size: 1.4em;
+    text-align: left;
+  }
+  .tabular table th {
+    background-color: gray;
+    color: white;
+  }
+  .tabular .buttons {
+    text-align: right;
+    width: 80%;
+    margin: 0px 0px 20px 0px;
+  }

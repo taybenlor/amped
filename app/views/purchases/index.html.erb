@@ -1,29 +1,23 @@
+<% content_for :head do  %>
+  <%= stylesheet_link_tag 'james' %>
+<% end %>
+
 <h1>Listing purchases</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Product</th>
-    <th>Amount</th>
-    <th>Confirmed</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="tabular">
+  <table class="">
+    <tr>
+      <th width="10px"></th>
+      <th>Product</th>
+      <th>Amount</th>
+    </tr>
 
-<% @purchases.each do |purchase| %>
-  <tr>
-    <td><%= purchase.user_id %></td>
-    <td><%= purchase.product_id %></td>
-    <td><%= purchase.amount %></td>
-    <td><%= purchase.confirmed %></td>
-    <td><%= link_to 'Show', purchase %></td>
-    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-    <td><%= link_to 'Destroy', purchase, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Purchase', new_purchase_path %>
+  <% @purchases.each do |purchase| %>
+    <tr>
+      <td><a href="/products/<%= purchase.product.id %>/download"><img src="/images/big_arrow_right.png" /></td>
+      <td><%= link_to purchase.product.name, product_url(purchase.product) %></td>
+      <td><%= number_to_currency(purchase.amount) %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:edit, :update, :destroy]
-
+  require 'grackle'
+  
   def index
     @users = User.all
 
@@ -13,7 +14,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
+    
+    client = Grackle::Client.new
+    client.users.show? :screen_name=>'jamsi' #http://twitter.com/users/show.json?screen_name=some_user
+    puts client.inspect
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
