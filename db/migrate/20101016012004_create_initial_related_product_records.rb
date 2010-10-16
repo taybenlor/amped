@@ -6,5 +6,6 @@ class CreateInitialRelatedProductRecords < ActiveRecord::Migration
   end
 
   def self.down
+    RelatedProduct.all.each(&:destroy)
   end
 end
