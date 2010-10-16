@@ -1,8 +1,14 @@
-<li class="product">
+<li class="product_image">
   <a href="<%= product_path(product)%>">
   <%= image_tag product.thumbnail.url(:micro), width: '75', height: '75' %>
   </a>
+</li>
+<li class="product_name">
   <a href="<%= product_path(product)%>"><%= product.name %></a>
-  <a href="<%= user_path(product.user)%>"><%= product.user.name %></h2>
+</li>
+<li class="product_user">
+  <a href="<%= user_path(product.user)%>"><%= product.user.name %></a>
+</li>
+<li class="product_stats">
   <%= render partial: 'products/stats', locals: {product: product} %>
 </li>
