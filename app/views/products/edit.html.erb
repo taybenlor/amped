@@ -1,6 +1,6 @@
 <h1>Editing product</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<h1>Previews</h1>
+<% if @product.id %>
+  <%= render :partial => 'previews', :object => @product %>
+<% end %>

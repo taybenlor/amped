@@ -49,16 +49,6 @@
 <!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
 
-  <% if flash[:notice] %>
-  <div class="flash">
-    <div class="inner_glow"><%= flash[:notice] %></div>
-  </div>
-  <% elsif flash[:error] %>
-  <div class="flash error">
-    <div class="inner_glow"><%= flash[:error] %></div>
-  </div>
-  <% end %>
-
   <div id="nav_bar">
     <div class="container_12">
       <header class="grid_12">
@@ -80,6 +70,18 @@
   <div id="content">
     <div class="container_12">
       <div class="grid_12">
+        <div id="flashes">
+          <% if flash[:notice] %>
+          <div class="flash">
+            <div class="inner_glow"><%= flash[:notice] %></div>
+          </div>
+          <% elsif flash[:error] %>
+          <div class="flash error">
+            <div class="inner_glow"><%= flash[:error] %></div>
+          </div>
+          <% end %>
+        </div><!-- /#flashes -->
+
         <%= yield %>
       </div>
     </div><!-- /.container_12 -->

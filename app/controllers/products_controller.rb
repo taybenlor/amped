@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   # Hmm .. so much cleaner
   respond_to :html, :json, :xml
+  before_filter :require_user, :only => [:create, :edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -24,8 +25,12 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(params[:product])
-    flash[:notice] = 'Product was successfully created.' if @product.save
-    respond_with @product
+    @product.user = current_user
+    if @product.save
+      flash[:notice] = 'Your product was successfully created.'
+    else
+      render :action => :new
+    end
   end
 
   def update
