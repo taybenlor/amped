@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :purchases
   
+  has_many :followers, foreign_key: :following_id, class_name: "Follow"
+  has_many :following, foreign_key: :follower_id, class_name: "Follow"
+  
   validates_presence_of :name
   
   def password_reset!  

@@ -1,6 +1,6 @@
 <%= form_for @user do |f| %>
   <%= f.error_messages %>
-  <ul class="width_700 centre">
+  <ul class="create_account">
     <li>
       <label for="user[username]">Your name</label>
       <%= f.text_field :name, :placeholder => "Steve Jobs", :autofocus => '' %></li>
@@ -14,15 +14,7 @@
       <label for="user[password_confirmation]" class="two_line_label">Once more for good&nbsp;measure</label>
       <%= f.password_field :password_confirmation, :placeholder => "••••••" %></li>
   </ul>
-  <div 
-  <%# raw(recaptcha_tags) %>
-  <div class="width_700 centre">
-    <button class="black" type="submit" id="open_password_confirm">
-      <div class="inner_glow">
-        Create Account
-      </div>
-    </button>
-  </div>
+  <button class="submit_button" type="submit">Create Account</button>
 <% end %>
 
 <script>

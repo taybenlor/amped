@@ -1,15 +1,20 @@
 .cart {
   
 }
-  .cart li {
-    list-style: none;
+  .cart table {
+    width: 80%;
   }
-  .cart .buttons {
-    float: right;
-    margin: 0px 0px 20px 0px;
+  .cart table th, td{
+    padding: 10px;
+    font-size: 1.4em;
+    text-align: left;
   }
-  
-  .cart .heading{
+  .cart table th {
     background-color: gray;
     color: white;
+  }
+  .cart .buttons {
+    text-align: right;
+    width: 80%;
+    margin: 0px 0px 20px 0px;
   }

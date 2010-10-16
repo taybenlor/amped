@@ -1,55 +1,51 @@
+/* @override http://169.254.182.178:3000/stylesheets/flashes.css */
+	
 /* Flash */
-
+	
 .flash {
-  display: block;
-  font-size: 1.3em;
-  width: 710px;
-  margin: 0 auto;
-  margin-top: -40px;
-  margin-bottom: 40px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border: solid 1px #bfbdb3;
-  background: #d9eabf;
-  color: #778662;
-  -webkit-box-shadow: 
-    0 1px 2px rgba(0,0,0,.1),
+	position: relative;
+	top: 0;
+	font-size: 14px;
+	font-weight: bold;
+	width: 940px;
+	margin: 0 auto;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: solid 1px #bfbdb3;
+	background: #d9eabf;
+	color: #778662;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1),
     inset 0 -1px 30px rgba(170, 212, 113, .8);
-  -moz-box-shadow: 
-    0 1px 2px rgba(0,0,0,.1),
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.1),
     inset 0 -1px 30px rgba(170, 212, 113, .8);
-  box-shadow: 
-    0 1px 2px rgba(0,0,0,.1),
+	box-shadow: 0 1px 2px rgba(0,0,0,.1),
     inset 0 -1px 30px rgba(170, 212, 113, .8);
-  
-}
-
-  .flash > .inner_glow {
-    padding: 13px;
-    padding-left: 45px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    border: solid 1px rgba(255,255,255,.2);
-    border-top-color: rgba(255,255,255,.4);
-    background: url(../images/tick.png) no-repeat 12px 8px;
-  }
-  
-  .flash.error {
-    background: #f4eac3;
-    color: #847057;
-    -webkit-box-shadow: 
-      0 1px 2px rgba(0,0,0,.1),
+    margin-bottom: 20px;
+	}
+	
+.flash > .inner_glow {
+	padding: 13px;
+	padding-left: 45px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: solid 1px rgba(255,255,255,.2);
+	border-top-color: rgba(255,255,255,.4);
+	background: url(../images/tick.png) no-repeat 12px 9px;
+	}
+	
+.flash.error {
+	background: #f4eac3;
+	color: #847057;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1),
       inset 0 -1px 30px rgba(218, 187, 81, .8);
-    -moz-box-shadow: 
-      0 1px 2px rgba(0,0,0,.1),
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.1),
       inset 0 -1px 30px rgba(218, 187, 81, .8);
-    box-shadow: 
-      0 1px 2px rgba(0,0,0,.1),
+	box-shadow: 0 1px 2px rgba(0,0,0,.1),
       inset 0 -1px 30px rgba(218, 187, 81, .8);
-  }
-  
-    .flash.error > .inner_glow {
-      background: url(../images/info.png) no-repeat 12px 8px;
-    }
+	}
+	
+.flash.error > .inner_glow {
+	background: url(../images/info.png) no-repeat 12px 8px;
+	}

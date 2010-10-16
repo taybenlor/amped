@@ -52,7 +52,8 @@ var ChromaHash = Class.create({
         if ($F(this._element) == '') {
             this._bars.each(function(hash) {
                 hash.morph({
-                  backgroundColor: '#ffffff'
+                  backgroundColor: 'transparent',
+                  opacity: '0'
                 }, {duration: .2});
             });
         } else {

@@ -1,36 +1,31 @@
-<h1>Account Settings</h1>
-<%= render partial: "users/avatar", locals: {user: current_user}%>
-<%= form_for current_user, :html => {:multipart => true} do |f| %>
-  <%= f.error_messages %>
-  <ul class="width_700 centre">
-    <li>
-      <label for="user[avatar]">Avatar</label>
-      <%= f.file_field :avatar %>
-    </li>
-    <li>
-      <label for="user[username]">Your name</label>
-      <%= f.text_field :name, :placeholder => "Steve Jobs", :autofocus => '' %></li>
-    <li>
-      <label for="user[email]">Email</label>
-      <%= f.text_field :email, :placeholder => "steve@me.com" %></li>
-    <li>
-      <label for="user[password]">Password</label>
-      <%= f.password_field :password, :placeholder => "••••••" %></li>
-    <li>
-      <label for="user[password_confirmation]" class="two_line_label">Once more for good&nbsp;measure</label>
-      <%= f.password_field :password_confirmation, :placeholder => "••••••" %></li>
-  </ul>
-  <div 
-  <div class="width_700 centre">
-    <button class="black" type="submit" id="open_password_confirm">
-      <div class="inner_glow">
-        Save Changes
-      </div>
-    </button>
-  </div>
-<% end %>
+<div class="edit_account_container">
+  <h1>Account Settings</h1>
+  <%= render partial: "users/avatar", locals: {user: current_user}%>
+  <%= form_for current_user, :html => {:multipart => true} do |f| %>
+    <%= f.error_messages %>
+    <ul class="edit_account">
+      <li>
+        <label for="user[avatar]">Avatar</label>
+        <%= f.file_field :avatar %>
+      </li>
+      <li>
+        <label for="user[username]">Your name</label>
+        <%= f.text_field :name, :placeholder => "Steve Jobs", :autofocus => '' %></li>
+      <li>
+        <label for="user[email]">Email</label>
+        <%= f.text_field :email, :placeholder => "steve@me.com" %></li>
+      <li>
+        <label for="user[password]">Password</label>
+        <%= f.password_field :password, :placeholder => "••••••" %></li>
+      <li>
+        <label for="user[password_confirmation]" class="two_line_label">Once more for good&nbsp;measure</label>
+        <%= f.password_field :password_confirmation, :placeholder => "••••••" %></li>
+    </ul>
+    <button class="submit_button" type="submit" id="open_password_confirm">Save Changes</button>
+  <% end %>
 
-<script>
-  new ChromaHash($('user_password'),{number: 3});
-  new ChromaHash($('user_password_confirmation'),{number: 3});
-</script>
+  <script>
+    new ChromaHash($('user_password'),{number: 3});
+    new ChromaHash($('user_password_confirmation'),{number: 3});
+  </script>
+</div>

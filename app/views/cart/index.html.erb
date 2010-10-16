@@ -17,21 +17,21 @@
 
   <% if !@cart.blank? %>
 
-    <div id="items" class="container_12">
+    <div id="items">
       
-      <ul class="grid_6">
-        <li>
-          <div class="grid_2 alpha heading">tsg</div>
-          <div class="grid_2 heading">test</div>
-          <div class="grid_2 omega heading">sdh</div>                    
-        </li>
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>?</th>
+        </tr>
         <%= render :partial => 'item', :collection => @cart %>
-      </ul>
+      </table>
     </div>
 
   <% else %>
 
-    <h3>Whoops, loose something? There's nothing in your cart dude!</h3>
+    <h3>Whoops, loose something? There's nothing in your cart dude! <a href="/products">Add something</a>?</h3>
   
   <% end %>
 
