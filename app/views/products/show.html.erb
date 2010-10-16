@@ -18,6 +18,10 @@
   
   <div class="clearfix"></div>
 
+  <div class="trendingpower">
+    <img src="<%= trending_power_graph(@product) %>">
+  </div>
+
   <div class="buttons">
     <%= render :partial => 'purchase_button', :locals => { :product => @product } %>
   </div>
