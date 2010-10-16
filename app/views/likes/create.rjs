@@ -1,0 +1,1 @@
+page.replace 'person-45', :partial => 'person', :object => @person

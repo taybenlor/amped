@@ -52,6 +52,10 @@
 	display: block;
 	}
 	
+#nav_bar a:hover {
+	text-decoration: underline;
+	}
+	
 #nav_bar h2 {
 	display: inline-block;
 	}
@@ -83,6 +87,51 @@
 	font-weight: bold;
 	color: #fff;
 	text-decoration: none;
+	}
+	
+/* @end */
+	
+/* @group Create Account */
+
+.create_account_container h1 {
+	font-size: 21px;
+	margin-bottom: 20px;
+	}
+		
+.create_account {
+	margin: 0;
+	list-style-type: none;
+	}
+.create_account li {
+	margin-bottom: 10px;
+	}
+	
+.create_account label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 3px;
+	}
+
+.create_account input {
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f3f3f3), to(#fff));
+	font-size: 14px;
+	font-family: "helvetica neue", helvetica, arial, sans-serif;
+	padding: 5px 8px;
+	border-radius: 4px;
+	margin: 0 0 10px 0;
+	-webkit-box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2);
+	border: 3px solid #dedede;
+	text-shadow: 0 1px 0 #fff;
+	-webkit-font-smoothing: antialiased;
+	font-weight: bold;
+	color: #5e5e5e;
+	}
+	
+.create_account input:focus {
+	outline: 0;
+	border: 3px solid rgba(125,173,204,0.4) !important;
+	-webkit-box-shadow: inset 0 0 0 1px rgba(125,173,204,0.6) !important;
+	color: #7dadcc !important;
 	}
 	
 /* @end */
