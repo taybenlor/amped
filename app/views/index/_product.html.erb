@@ -1,4 +1,4 @@
-<li class="product_image">
+<li class="product_image" product-id="<%= product.id %>">
   <a href="<%= product_path(product)%>">
   <%= image_tag product.thumbnail.url(:micro), width: '75', height: '75' %>
   </a>

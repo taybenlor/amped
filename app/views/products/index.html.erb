@@ -1,8 +1,9 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag 'index' %>
+  <%= javascript_include_tag 'index' %>
 <% end %>
 
-<article class="tag_container">
+<article id="main_content" class="tag_container">
   <% trending_products_by_tag.each do |tag, products| %>
     <section>
       <h1>Tagged "<%= tag %>"</h1>
