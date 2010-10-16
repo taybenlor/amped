@@ -51,4 +51,20 @@ class ProductsController < ApplicationController
   def fetch_preview
     @preview = ProductPreview.find(params[:id])
   end
+  
+  def download
+    @product = Product.where(:id => params[:id]).first
+    
+    if !@product.blank?
+      if @product.file.url
+        redirect_to @product.file.url(:original)
+      else
+        flash[:error] = "Cannot find download :("
+        render 'download_error'
+      end
+    end
+    
+    
+    
+  end
 end
