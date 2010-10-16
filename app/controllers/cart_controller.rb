@@ -10,6 +10,15 @@ class CartController < ApplicationController
   end
 
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
+  def create
+    @id = params[:id]
+    items = session[:cart]
+    items << "#{@id}"
+    session[:cart] = items
+  end
+  
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   def new
     items = ['1', '2']
@@ -106,17 +115,5 @@ class CartController < ApplicationController
       render :action => 'error'
       return
     end
-  end
-      
-  private
-  
-    # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
-    # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
-    def gateway
-      @gateway ||= PaypalExpressGateway.new(
-        :login => 'nybles_1287187717_biz_api1.visualconnect.net',
-        :password => 'H5SU5XRYH27QZXYB',
-        :signature => 'AFcWxV21C7fd0v3bYYYRCpSSRl31Aru-BRPlXkQrXRcew2eXUkSbyYU1'
-      )
-    end
+  end    
 end

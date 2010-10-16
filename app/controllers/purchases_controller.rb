@@ -1,83 +1,20 @@
 class PurchasesController < ApplicationController
-  # GET /purchases
-  # GET /purchases.xml
-  def index
-    @purchases = Purchase.all
+  
+  # Includes active merchant gem
+  include ActiveMerchant::Billing
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @purchases }
-    end
-  end
-
-  # GET /purchases/1
-  # GET /purchases/1.xml
-  def show
-    @purchase = Purchase.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @purchase }
-    end
-  end
-
-  # GET /purchases/new
-  # GET /purchases/new.xml
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
   def new
-    @purchase = Purchase.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @purchase }
+    @product = Product.where(:id => params[:product_id]).first
+    
+    if @product.blank?
+      setup_response = gateway.setup_purchase(@product.amount,
+        :ip                => request.remote_ip,
+        :return_url        => url_for(:action => 'confirm', :only_path => false),
+        :cancel_return_url => url_for(:action => 'index', :only_path => false)
+      )
+      redirect_to gateway.redirect_url_for(setup_response.token)
     end
-  end
-
-  # GET /purchases/1/edit
-  def edit
-    @purchase = Purchase.find(params[:id])
-  end
-
-  # POST /purchases
-  # POST /purchases.xml
-  def create
-    @purchase = Purchase.new(params[:purchase])
-
-    respond_to do |format|
-      if @purchase.save
-        format.html { redirect_to(@purchase, :notice => 'Purchase was successfully created.') }
-        format.xml  { render :xml => @purchase, :status => :created, :location => @purchase }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @purchase.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /purchases/1
-  # PUT /purchases/1.xml
-  def update
-    @purchase = Purchase.find(params[:id])
-
-    respond_to do |format|
-      if @purchase.update_attributes(params[:purchase])
-        format.html { redirect_to(@purchase, :notice => 'Purchase was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @purchase.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /purchases/1
-  # DELETE /purchases/1.xml
-  def destroy
-    @purchase = Purchase.find(params[:id])
-    @purchase.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(purchases_url) }
-      format.xml  { head :ok }
-    end
-  end
+  end  
 end
