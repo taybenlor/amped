@@ -1,13 +1,13 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag 'index' %>
   <%= javascript_include_tag 'index' %>
-<% end %>
+<% end %> 
 
 <article id="main_content" class="tag_container">
 <aside>
-  <h1>nybles</h1>
+  <h1 class="index_image">nybles</h1>
   <form action="<%= search_products_path %>">
-    <input type="text" name="query">
+    <input type="text" name="query" class="main_search" placeholder="Search">
   </form>
 </aside>
 

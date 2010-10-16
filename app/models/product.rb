@@ -49,7 +49,8 @@ class Product < ActiveRecord::Base
   
   
   # searching
-  after_save :update_keywords, :update_tags
+  after_save   :update_keywords
+  after_create :update_tags
   def update_keywords
     return unless name_changed? || description_changed?
     return if keyword_magnitude_changed?

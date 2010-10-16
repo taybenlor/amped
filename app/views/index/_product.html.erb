@@ -1,7 +1,5 @@
 <li class="product" product-id="<%= product.id %>">
-  <a href="<%= product_path(product)%>">
   <%= image_tag product.thumbnail.url(:micro), width: '75', height: '75' %>
-  </a>
   <a href="<%= product_path(product)%>"><%= product.name %></a>
   <a href="<%= user_path(product.user)%>"><%= product.user.name %></a>
   <%= render partial: 'products/stats', locals: {product: product} %>
