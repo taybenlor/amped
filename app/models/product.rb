@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   has_many    :purchases
   has_many    :keywords
   has_many    :product_previews
-  has_many    :tags
+  has_many    :tags, :order => 'index asc'
   
   validates_presence_of :user_id
   validates_presence_of :description
@@ -35,6 +35,15 @@ class Product < ActiveRecord::Base
     current_hours = Time.zone.now.to_i / (60 * 60)
     query = Product.select("*, ((like_cache) / power(#{current_hours} - created_hour, 1.8)) as score")
     query.order('score desc').limit(limit).all
+  end
+  
+  
+  # tags
+  def set_tags(text)
+    self.tags.each(&:destroy)
+    text.split(',').collect(&:downcase).collect(&:strip).each do |tag|
+      Tag.create(product_id: self.id, tag: tag)
+    end
   end
   
   
