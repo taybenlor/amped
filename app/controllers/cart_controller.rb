@@ -6,7 +6,32 @@ class CartController < ApplicationController
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
   def index
-    @items = session[:cart]
+    @cart = session[:cart]
+  end
+
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  def new
+    items = ['1', '2', '3']
+    session[:cart] = items
+    redirect_to :action => 'index'
+  end
+
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  # Lorem Ipsum, Lorem Ipsum, Lorem Ipsum  
+  def destroy
+    
+    # Fetch items
+    items = session[:cart]
+    
+    # What value are we deleting?
+    @id = params[:id]
+    
+    # Delete!
+    items.delete(@id)
+    
+    # Redirect to index
+    redirect_to :action => 'index'
   end
   
   # Paypal CHECKOUT Method
